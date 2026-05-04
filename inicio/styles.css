@@ -1,0 +1,168 @@
+/*botones*/
+.btn1 {
+    overflow: hidden;
+    position:relative;
+    text-decoration:none;
+    font-size:  15px;
+    background-color:rgba(0,0,0,0.3);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    padding:10px 20px;
+    border-radius:30px;
+    display: inline-block; 
+    
+}
+
+a {
+    color:black;
+    font-weight: 600;
+    font-family:"poppins", sans-serif;
+}
+
+.btn1:hover {
+  background-color:var(--blue);
+  color:rgb(255, 243, 243);
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+  margin-left: 40px; /* separa del logo */
+}
+
+.principal {
+  display: flex;
+  gap: 15px;
+  margin-left: 40px; /* separa del logo */
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body{
+    height: 100vh;
+    background-color: #eafdfc;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+}
+
+.carrusel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80vh;
+}
+
+.imagenes{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img{
+    height: 400px;
+    width: 576px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.85);
+}
+
+.texto{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 250px;
+    height: 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center;  <-- Eliminamos esta línea */
+    
+    padding-top: 15px; /* Ajusta este valor para bajar el h3 cuanto necesites */
+    box-sizing: border-box;
+
+    background-color: rgba(63, 106, 138, 0.21);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.texto h3{
+    color: white;
+    font-size: 27px;
+    margin: 0;
+}
+
+.texto p{
+    color: white;
+    font-size: 16px;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-align: center;
+}
+
+/* HOVER */
+.imagenes:hover .texto{
+    transform: translate(-50%, -80px);
+    height: 140px;
+    background-color: rgba(63, 106, 138, 0.7);
+}
+
+.imagenes:hover .texto p{
+    opacity: 1;
+}
+
+.atras img,
+.adelante img{
+    width: 40px;
+    cursor: pointer;
+}
+
+:root {
+  --blue: #8fd3ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  overflow-x: hidden;
+}
+/*Menu-barra*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
