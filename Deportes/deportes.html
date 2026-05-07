@@ -1,22 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Deportes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DEPORTES</title>
+
     <link rel="stylesheet" href="deportes.css">
+    <link rel="icon" href="/imagenes/buhos.ico">
 </head>
+
 <body>
-    <header>
-        <h3>Deportes</h3>
-        <h3>Mateo modificando</h3>
-        <h1>¡Bienvenido a la sección de deportes! </h1>
-        <h1>En esta sección encontrarás las últimas noticias, </h1>
-         <a class="btn1" href="../inicio/index.html">Inicio</a>
-       
-        
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <img src="/imagenes/buho.jpg" alt="Logo">
+
+            <h2>MIMVY SPORTS</h2>
+
+        </div>
+
+        <nav class="menu">
+
+            <a href="../inicio/index.html">Inicio</a>
+
+            <a href="#deportes">Deportes</a>
+
+            <a href="#informacion">Información</a>
+
+        </nav>
+
+        <a class="btn-login" href="login.html">
+            Iniciar Sesión
+        </a>
+
     </header>
-    
-    
+
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-contenido">
+
+            <h1>
+                Bienvenido al mundo deportivo
+            </h1>
+
+            <p>
+                Encuentra información, horarios,
+                resultados y mucho más sobre tus
+                deportes favoritos.
+            </p>
+
+            <a href="#deportes" class="btn-explorar">
+                Explorar Deportes
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CARRUSEL -->
+
+    <section id="deportes">
+
+        <h2 class="titulo-seccion">
+            Deportes Destacados
+        </h2>
+
+        <div class="carrusel">
+
+            <div class="atras" id="atras">
+
+                <img src="/imagenes/atras.webp" alt="Atrás">
+
+            </div>
+
+            <div id="img"></div>
+
+            <div id="texto" class="texto"></div>
+
+            <div class="adelante" id="adelante">
+
+                <img src="/imagenes/adelante.png" alt="Adelante">
+
+            </div>
+
+        </div>
+
+        <div class="puntos" id="puntos"></div>
+
+    </section>
+
+
+
+    <!-- INFORMACION -->
+
+    <section id="informacion" class="informacion">
+
+        <h2>
+            ¿Qué encontrarás aquí?
+        </h2>
+
+        <p>
+            Esta plataforma fue creada para organizar
+            información deportiva, horarios, agendas,
+            actividades físicas y mucho más.
+        </p>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 MIMVY SPORTS - Todos los derechos reservados
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
