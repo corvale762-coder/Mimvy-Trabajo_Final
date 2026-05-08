@@ -1,51 +1,152 @@
-<script>
-        const items = document.querySelectorAll('.acordeon-item');
-        items.forEach(item => {
-            item.addEventListener('click', () => {
-                items.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-            });
-        });
-    </script>
-</body>
-</html>
+const imagenes = [
 
+{
+    url: "/imagenes/imagen1.webp",
 
-const cards = document.querySelectorAll(".epic-card");
+    nombre: "Fútbol",
 
+    descripcion:
+    "Aquí encontrarás toda la información sobre fútbol."
+},
 
+{
+    url: "/imagenes/imagen2.webp",
 
-cards.forEach((card) => {
+    nombre: "Baloncesto",
 
-    card.addEventListener("mousemove", (e) => {
+    descripcion:
+    "Aquí encontrarás toda la información sobre baloncesto."
+},
 
-        const rect = card.getBoundingClientRect();
+{
+    url: "/imagenes/imagen3.webp",
 
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+    nombre: "Voleibol",
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+    descripcion:
+    "Aquí encontrarás toda la información sobre voleibol."
+}
 
-        const rotateX = ((y - centerY) / 25) * -1;
-        const rotateY = (x - centerX) / 25;
-
-        card.style.transform = `
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            scale(1.04)
-        `;
-    });
+];
 
 
 
-    card.addEventListener("mouseleave", () => {
+const atras = document.getElementById("atras");
 
-        card.style.transform = `
-            rotateX(0deg)
-            rotateY(0deg)
-            scale(1)
-        `;
-    });
+const adelante = document.getElementById("adelante");
 
+const imagen = document.getElementById("img");
+
+const texto = document.getElementById("texto");
+
+const puntos = document.getElementById("puntos");
+
+let actual = 0;
+
+
+
+/* MOSTRAR IMAGEN */
+
+function mostrarImagen(){
+
+    imagen.innerHTML = `
+
+        <img
+            class="img"
+            src="${imagenes[actual].url}"
+            alt="${imagenes[actual].nombre}"
+        >
+
+    `;
+
+    texto.innerHTML = `
+
+        <h3>${imagenes[actual].nombre}</h3>
+
+        <p>${imagenes[actual].descripcion}</p>
+
+    `;
+
+    actualizarPuntos();
+}
+
+
+
+/* BOTON ADELANTE */
+
+adelante.addEventListener("click", () => {
+
+    actual++;
+
+    if(actual >= imagenes.length){
+
+        actual = 0;
+    }
+
+    mostrarImagen();
 });
+
+
+
+/* BOTON ATRAS */
+
+atras.addEventListener("click", () => {
+
+    actual--;
+
+    if(actual < 0){
+
+        actual = imagenes.length - 1;
+    }
+
+    mostrarImagen();
+});
+
+
+
+/* PUNTOS */
+
+function actualizarPuntos(){
+
+    puntos.innerHTML = "";
+
+    for(let i = 0; i < imagenes.length; i++){
+
+        if(i === actual){
+
+            puntos.innerHTML += `
+            <span class="punto activo"></span>
+            `;
+        }
+
+        else{
+
+            puntos.innerHTML += `
+            <span class="punto"></span>
+            `;
+        }
+    }
+}
+
+
+
+/* AUTO PLAY */
+
+setInterval(() => {
+
+    actual++;
+
+    if(actual >= imagenes.length){
+
+        actual = 0;
+    }
+
+    mostrarImagen();
+
+}, 5000);
+
+
+
+/* INICIAR */
+
+mostrarImagen();

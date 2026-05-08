@@ -1,164 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>DEPORTES</title>
-
+    <title>DEPORTES - Proyecto</title>
     <link rel="stylesheet" href="deportes.css">
-
-    <link rel="icon" href="../imagenes/buhos.ico">
-
 </head>
-
 <body>
 
-
-
-    <!-- HEADER -->
-
-    <header class="header">
-
-        <div class="logo">
-
-            <img src="../imagenes/buho.jpg" alt="Logo">
-
-            <h2>DEPORTES</h2>
-
+    <header class="main-header">
+        <div class="logo-container">
+            <span class="logo-text">DEPORTES</span>
         </div>
-
-
-
-        <nav class="menu">
-
-            <a href="../inicio/index.html">Inicio</a>    
-
-
-
-            <a href="#informacion">Información</a>
-
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Información</a>
         </nav>
-
-
-
-        <a class="btn-login" href="login.html">
-
-            Iniciar Sesión
-
-        </a>
-
+        <a href="#" class="btn-login">Iniciar Sesión</a>
     </header>
 
-
-
-
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <div class="hero-contenido">
-
-            <h1>
-                Bienvenido al mundo deportivo
-            </h1>
-
-            <p>
-                Encuentra información, horarios,
-                resultados y mucho más sobre tus
-                deportes favoritos.
-            </p>
-
-           
-        </div>
-
-
-
-
-
-        <!-- CARDS ESTILO EPIC GAMES -->
-
-      <section id="deportes" class="deportes-section">
-    <div class="acordeon-container">
-
-        <div class="acordeon-item item1 active">
-            <div class="acordeon-contenido">
-                <h3>Fútbol</h3>
-                <p>Explora las mejores ligas, resultados en tiempo real y noticias del deporte rey.</p>
-                <a href="#" class="btn-ver">Ver Detalles</a>
-            </div>
-        </div>
-
-        <div class="acordeon-item item2">
-            <div class="acordeon-contenido">
-                <h3>Baloncesto</h3>
-                <p>Sigue la NBA y las ligas locales con estadísticas detalladas de cada partido.</p>
-                <a href="#" class="btn-ver">Ver Detalles</a>
-            </div>
-        </div>
-
-        <div class="acordeon-item item3">
-            <div class="acordeon-contenido">
-                <h3>Voleibol</h3>
-                <p>Toda la información sobre torneos nacionales y equipos de alto rendimiento.</p>
-                <a href="#" class="btn-ver">Ver Detalles</a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<script>
-    const items = document.querySelectorAll('.acordeon-item');
-    items.forEach(item => {
-        item.addEventListener('click', () => {
-            items.forEach(i => i.classList.remove('active'));
-            item.classList.add('active');
-        });
-    });
-</script>
-
-
-
-
-    <!-- INFORMACION -->
-
-    <section id="informacion" class="informacion">
-
-        <h2>
-            ¿Qué encontrarás aquí?
-        </h2>
-
-        <p>
-
-            Esta plataforma fue creada para organizar
-            información deportiva, horarios, agendas,
-            actividades físicas y mucho más.
-
-        </p>
-
+    <section class="hero-deportes">
+        <h1>Bienvenido al mundo deportivo</h1>
+        <p>Encuentra información, horarios, resultados y mucho más sobre tus deportes favoritos.</p>
     </section>
 
+    <section id="deportes" class="deportes-section">
+        <div class="acordeon-container">
+            <div class="acordeon-item item1 active">
+                <div class="acordeon-contenido">
+                    <h3>Fútbol</h3>
+                    <p>Explora las mejores ligas y resultados en tiempo real.</p>
+                    <a href="#" class="btn-ver">Ver Detalles</a>
+                </div>
+            </div>
+            <div class="acordeon-item item2">
+                <div class="acordeon-contenido">
+                    <h3>Baloncesto</h3>
+                    <p>Sigue la NBA y las ligas locales con estadísticas estelares.</p>
+                    <a href="#" class="btn-ver">Ver Detalles</a>
+                </div>
+            </div>
+            <div class="acordeon-item item3">
+                <div class="acordeon-contenido">
+                    <h3>Voleibol</h3>
+                    <p>Toda la información sobre torneos y equipos destacados.</p>
+                    <a href="#" class="btn-ver">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-
-
-    <!-- FOOTER -->
+    <section class="informacion">
+        <h2>¿Qué encontrarás aquí?</h2>
+        <p>Esta plataforma fue creada para organizar información deportiva, horarios, agendas, actividades físicas y mucho más.</p>
+    </section>
 
     <footer class="footer">
-
-        <p>
-            © 2026 MIMVY 
-        </p>
-
+        <p>© 2026 MIMVY</p>
     </footer>
 
-
-
+    <script>
+        const items = document.querySelectorAll('.acordeon-item');
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                // Quita la clase activa de todos
+                items.forEach(i => i.classList.remove('active'));
+                // Se la pone al que hiciste clic
+                item.classList.add('active');
+            });
+        });
+    </script>
 </body>
-
 </html>
