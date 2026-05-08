@@ -1,422 +1,241 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+/* ================= CONFIGURACIÓN GLOBAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', Arial, sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-body{
-    background:#eef7f7;
-    color:#222;
+body {
+    background: #eef7f7;
+    color: #222;
+
+    /* 1. EL TÍTULO "DEPORTES" EN AZUL */
+.logo h2 {
+    color: #2563eb; /* Azul brillante */
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 
-
-
-/* HEADER */
-
-.header{
-
-    width:100%;
-    height:90px;
-
-    background:white;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 60px;
-
-    position:fixed;
-    top:0;
-
-    z-index:1000;
-
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+/* ================= BARRA DE NAVEGACIÓN (HEADER) ================= */
+.logo h2 {
+    color: #2563eb; /* El título "DEPORTES" en el header será azul brillante */
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
-.logo{
-
-    display:flex;
-    align-items:center;
-
-    gap:10px;
+/* ================= SECCIÓN HERO (ADIÓS AL GRIS, HOLA A LOS COLORES BONITOS) ================= */
+.hero {
+    width: 100%;
+    height: 100vh;
+    /* 1. Cambiamos el fondo gris plano por un degradado dinámico "bonito" */
+    /* Este gradiente va de un Azul Eléctrico a un Púrpura Vibrante */
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.75), rgba(126, 34, 206, 0.9)), 
+                url("../imagenes/imagen1.webp") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.logo img{
-
-    width:55px;
-    height:55px;
-
-    border-radius:50%;
-
-    object-fit:cover;
+/* EFECTOS DE LUZ ADICIONALES PARA MÁS COLOR */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 400px; height: 400px;
+    background: #00ffcc; /* Brillo Turquesa */
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    top: 100px; left: -100px;
 }
 
-.logo h2{
-
-    color:#0f172a;
-    font-size:24px;
+.hero-contenido {
+    max-width: 1100px;
+    z-index: 2; /* Asegura que el texto esté sobre los efectos de luz */
 }
 
-.menu{
-
-    display:flex;
-    gap:35px;
+/* EL TÍTULO GIGANTE DE 100PX EN AZUL */
+.hero h1 {
+    font-size: 100px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    margin-bottom: 20px;
+    /* CAMBIO CLAVE: El título ahora es azul brillante sobre el fondo */
+    color: #2563eb; 
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para que se despegue */
 }
 
-.menu a{
-
-    text-decoration:none;
-
-    color:#333;
-
-    font-weight:bold;
-
-    transition:0.3s;
+.hero p {
+    font-size: 26px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: white; /* El párrafo de bienvenida sigue siendo blanco */
+}
 }
 
-.menu a:hover{
-
-    color:#2563eb;
+/* ================= HEADER ================= */
+.header {
+    width: 100%;
+    height: 90px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.btn-login{
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+.logo h2 { color: #0f172a; font-size: 24px; }
 
-    text-decoration:none;
+.menu { display: flex; gap: 35px; }
+.menu a { text-decoration: none; color: #333; font-weight: bold; transition: 0.3s; }
+.menu a:hover { color: #2563eb; }
 
-    background:#2563eb;
-    color:white;
-
-    padding:12px 25px;
-
-    border-radius:10px;
-
-    font-weight:bold;
-
-    transition:0.3s;
+.btn-login {
+    text-decoration: none;
+    background: #2563eb;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
-.btn-login:hover{
-
-    background:#1d4ed8;
+/* ================= HERO (EL GRAN IMPACTO) ================= */
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url("../imagenes/imagen1.webp") center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
 }
 
-
-
-/* HERO */
-
-.hero{
-
-    width:100%;
-    height:100vh;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)
-    ),
-
-    url("/imagenes/imagen1.webp");
-
-    background-size:cover;
-    background-position:center;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    color:white;
-
-    padding:20px;
+.hero h1 {
+    font-size: 100px; /* Tamaño solicitado */
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    margin-bottom: 20px;
 }
 
-.hero-contenido{
-
-    max-width:700px;
+.hero p {
+    font-size: 24px;
+    max-width: 800px;
+    margin: 0 auto 40px;
 }
 
-.hero h1{
-
-    font-size:65px;
-
-    margin-bottom:20px;
+.btn-explorar {
+    text-decoration: none;
+    background: #2563eb;
+    color: white;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
 }
 
-.hero p{
-
-    font-size:22px;
-
-    line-height:1.6;
-
-    margin-bottom:35px;
+/* ================= ACORDEÓN ================= */
+.titulo-seccion {
+    text-align: center;
+    font-size: 45px;
+    margin: 100px 0 50px;
+    text-transform: uppercase;
 }
 
-.btn-explorar{
-
-    text-decoration:none;
-
-    background:#2563eb;
-    color:white;
-
-    padding:15px 35px;
-
-    border-radius:12px;
-
-    font-weight:bold;
-
-    transition:0.3s;
+.acordeon-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 600px;
+    gap: 15px;
+    margin: 0 auto 100px;
 }
 
-.btn-explorar:hover{
-
-    background:#1d4ed8;
+.acordeon-item {
+    flex: 1;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
+.item1 { background-image: linear-gradient(transparent, rgba(0,0,0,0.9)), url("../imagenes/imagen1.webp"); }
+.item2 { background-image: linear-gradient(transparent, rgba(0,0,0,0.9)), url("../imagenes/imagen2.webp"); }
+.item3 { background-image: linear-gradient(transparent, rgba(0,0,0,0.9)), url("../imagenes/imagen3.webp"); }
 
-
-/* TITULO */
-
-.titulo-seccion{
-
-    text-align:center;
-
-    font-size:45px;
-
-    margin-top:100px;
-    margin-bottom:50px;
-
-    color:#0f172a;
+.acordeon-contenido {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    padding: 40px;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.2s;
 }
 
+.acordeon-contenido h3 { font-size: 48px; margin-bottom: 10px; }
 
-
-/* CARRUSEL */
-
-.carrusel{
-
-    width:90%;
-    max-width:900px;
-
-    margin:auto;
-
-    background:white;
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    position:relative;
-
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+.btn-ver {
+    display: inline-block;
+    padding: 10px 25px;
+    background: white;
+    color: #2563eb;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
 }
 
-#img img{
-
-    width:100%;
-    height:500px;
-
-    object-fit:cover;
+.acordeon-item:hover, .acordeon-item.active { flex: 5; }
+.acordeon-item:hover .acordeon-contenido, .acordeon-item.active .acordeon-contenido {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.texto{
-
-    padding:30px;
-
-    text-align:center;
+/* ================= FRANJA INFO Y FOOTER ================= */
+.informacion {
+    width: 100vw;
+    background: white;
+    padding: 120px 20px;
+    text-align: center;
+    border-top: 10px solid #2563eb;
 }
 
-.texto h3{
-
-    font-size:38px;
-
-    color:#2563eb;
-
-    margin-bottom:15px;
-}
-
-.texto p{
-
-    font-size:18px;
-
-    color:#555;
-
-    line-height:1.6;
-}
-
-
-
-/* BOTONES */
-
-.atras,
-.adelante{
-
-    width:60px;
-    height:60px;
-
-    background:rgba(255,255,255,0.8);
-
-    border-radius:50%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    position:absolute;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
-
-.atras:hover,
-.adelante:hover{
-
-    background:white;
-}
-
-.atras{
-
-    left:20px;
-}
-
-.adelante{
-
-    right:20px;
-}
-
-.atras img,
-.adelante img{
-
-    width:30px;
-}
-
-
-
-/* PUNTOS */
-
-.puntos{
-
-    display:flex;
-    justify-content:center;
-
-    gap:12px;
-
-    margin-top:25px;
-    margin-bottom:80px;
-}
-
-.punto{
-
-    width:15px;
-    height:15px;
-
-    background:#cbd5e1;
-
-    border-radius:50%;
-}
-
-.punto.activo{
-
-    background:#2563eb;
-}
-
-
-
-/* INFORMACION */
-
-.informacion{
-
-    background:white;
-
-    padding:100px 20px;
-
-    text-align:center;
-}
-
-.informacion h2{
-
-    font-size:45px;
-
-    margin-bottom:25px;
-}
-
-.informacion p{
-
-    max-width:800px;
-
-    margin:auto;
-
-    font-size:20px;
-
-    line-height:1.8;
-
-    color:#555;
-}
-
-
-
-/* FOOTER */
-
-.footer{
-
-    background:#0f172a;
-
-    color:white;
-
-    text-align:center;
-
-    padding:30px;
-}
-
-
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-    .header{
-
-        padding:0 20px;
-    }
-
-    .menu{
-
-        display:none;
-    }
-
-    .hero h1{
-
-        font-size:45px;
-    }
-
-    .hero p{
-
-        font-size:18px;
-    }
-
-    #img img{
-
-        height:300px;
-    }
-
-    .titulo-seccion{
-
-        font-size:35px;
-    }
-
-    .informacion h2{
-
-        font-size:35px;
-    }
+.informacion h2 { font-size: 60px; text-transform: uppercase; margin-bottom: 20px; }
+
+.footer {
+    width: 100vw;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
