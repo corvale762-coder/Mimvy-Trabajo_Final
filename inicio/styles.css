@@ -37,8 +37,6 @@ a {
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 body{
     height: 100vh;
     background-color: #eafdfc;
@@ -52,89 +50,7 @@ body{
 
 }
 
-.carrusel{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 80vh;
-}
 
-.imagenes{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.img{
-    height: 400px;
-    width: 576px;
-    border-radius: 15px;
-    object-fit: cover;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.85);
-}
-
-.texto{
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 250px;
-    height: 70px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center;  <-- Eliminamos esta línea */
-    
-    padding-top: 15px; /* Ajusta este valor para bajar el h3 cuanto necesites */
-    box-sizing: border-box;
-
-    background-color: rgba(63, 106, 138, 0.21);
-    backdrop-filter: blur(20px);
-    border-radius: 30px;
-
-    overflow: hidden;
-    transition: all 0.5s;
-}
-
-.texto h3{
-    color: white;
-    font-size: 27px;
-    margin: 0;
-}
-
-.texto p{
-    color: white;
-    font-size: 16px;
-    margin: 0;
-    opacity: 0;
-    transition: opacity 0.5s;
-    text-align: center;
-}
-
-/* HOVER */
-.imagenes:hover .texto{
-    transform: translate(-50%, -80px);
-    height: 140px;
-    background-color: rgba(63, 106, 138, 0.7);
-}
-
-.imagenes:hover .texto p{
-    opacity: 1;
-}
-
-.atras img,
-.adelante img{
-    width: 40px;
-    cursor: pointer;
-}
-
-:root {
-  --blue: #8fd3ff;
-}
 
 * {
   margin: 0;
