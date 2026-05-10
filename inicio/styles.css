@@ -51,16 +51,15 @@ body{
 }
 
 
+:root {
+  --blue: #8fd3ff;
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  outline: none;
-  border: none;
-  text-transform: capitalize;
-  transition: 0.2s linear;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -196,4 +195,34 @@ footer .onda#onda4{
   {
     background-position-x: 1000px;
   }
+}
+.carrusel{
+  width: 1280px;
+  height: auto;
+  margin: 50px auto 0;
+}
+.carrusel ul{
+  display: flex;
+  padding: 0;
+  width: 400%;
+  animation: carrusel 20s infinite alternate ease-in-out;
+}
+.carrusel il{
+  width: 100%;
+  list-style: none;
+  position: relative;
+}
+.texto{
+  position: absolutex;
+  text-align: center;
+  padding: 0 250px;
+  top: 250%;
+  color: #fff;
+}
+.texto h2{
+  font-size: 45px;
+  margin-bottom: 35px;
+}
+.carrusel img{
+  width: 100%;
 }
