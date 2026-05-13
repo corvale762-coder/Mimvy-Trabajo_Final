@@ -243,10 +243,20 @@ body{
 /* ================= INFORMACIÓN ================= */
 .informacion{
     width: 100vw;
-    background: white;
     padding: 120px 20px;
     text-align: center;
     border-top: 10px solid #2563eb;
+
+    background:
+    linear-gradient(
+        rgba(255,255,255,0.88),
+        rgba(255,255,255,0.88)
+    ),
+    url("WhatsApp Image 2026-05-07 at 3.38.26 PM.jpeg");
+
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .informacion h2{

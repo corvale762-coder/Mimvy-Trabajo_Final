@@ -37,8 +37,6 @@ a {
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 body{
     height: 100vh;
     background-color: #eafdfc;
@@ -52,85 +50,6 @@ body{
 
 }
 
-.carrusel{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 80vh;
-}
-
-.imagenes{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.img{
-    height: 400px;
-    width: 576px;
-    border-radius: 15px;
-    object-fit: cover;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.85);
-}
-
-.texto{
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 250px;
-    height: 70px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center;  <-- Eliminamos esta línea */
-    
-    padding-top: 15px; /* Ajusta este valor para bajar el h3 cuanto necesites */
-    box-sizing: border-box;
-
-    background-color: rgba(63, 106, 138, 0.21);
-    backdrop-filter: blur(20px);
-    border-radius: 30px;
-
-    overflow: hidden;
-    transition: all 0.5s;
-}
-
-.texto h3{
-    color: white;
-    font-size: 27px;
-    margin: 0;
-}
-
-.texto p{
-    color: white;
-    font-size: 16px;
-    margin: 0;
-    opacity: 0;
-    transition: opacity 0.5s;
-    text-align: center;
-}
-
-/* HOVER */
-.imagenes:hover .texto{
-    transform: translate(-50%, -80px);
-    height: 140px;
-    background-color: rgba(63, 106, 138, 0.7);
-}
-
-.imagenes:hover .texto p{
-    opacity: 1;
-}
-
-.atras img,
-.adelante img{
-    width: 40px;
-    cursor: pointer;
-}
 
 :root {
   --blue: #8fd3ff;
@@ -140,11 +59,7 @@ body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  outline: none;
-  border: none;
-  text-transform: capitalize;
-  transition: 0.2s linear;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -166,3 +81,158 @@ header {
   justify-content: space-between;
 }
 
+footer {
+    position: relative;
+    width: 100%;
+    background: rgb(49, 129, 249);
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .social-icon, footer .menu-footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+footer .social-icon li, footer .menu-footer li {
+    list-style: none;
+}
+
+footer .social-icon li a {
+    font-size: 2em;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    color: #fff;
+}
+footer .menu-footer li a{
+    font-size: 1.2em;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.75;
+}
+footer .social-icon li a:hover {
+    transform: translateY(-10px);
+}
+footer .menu-footer li a:hover{
+  opacity: 1;
+}
+footer .social-icon li a img {
+    width: 40px;
+    height: 40px;
+}
+
+footer p{
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 1.1 em;
+    position: relative;
+    overflow: hidden;
+}
+footer .onda{
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(/Imagenes/wave.png);
+  background-size: 1000px 100px;
+}
+footer .onda#onda1{
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWave 4s linear infinite;
+}
+footer .onda#onda2{
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave_02 4s linear infinite;
+}
+footer .onda#onda3{
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWave 3s linear infinite;
+}
+footer .onda#onda4{
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave_02 3s linear infinite;
+}
+@keyframes animateWave {
+  0%
+  {
+    background-position-x: 1000px;
+  }
+  100% 
+  {
+    background-position-x: 0px;
+  }
+}
+@keyframes animateWave_02 {
+  0%
+  {
+    background-position-x: 0px;
+  }
+  100% 
+  {
+    background-position-x: 1000px;
+  }
+}
+.carrusel{
+  width: 1280px;
+  height: auto;
+  margin: 50px auto 0;
+}
+.carrusel ul{
+  display: flex;
+  padding: 0;
+  width: 400%;
+  animation: carrusel 20s infinite alternate ease-in-out;
+}
+.carrusel il{
+  width: 100%;
+  list-style: none;
+  position: relative;
+}
+.texto{
+  position: absolutex;
+  text-align: center;
+  padding: 0 250px;
+  top: 250%;
+  color: #fff;
+}
+.texto h2{
+  font-size: 45px;
+  margin-bottom: 35px;
+}
+.carrusel img{
+  width: 100%;
+}
+@keyframes carrusel{
+  0%{margin-left: 0;}
+  20%{margin-left: 0;}
+  25%{margin-left: -100%;}
+  45%{margin-left: -100%;}
+  50%{margin-left: -200%;}
+  70%{margin-left: -200%;}
+  75%{margin-left: -300%;}
+  100%{margin-left: -300%;}
+}
