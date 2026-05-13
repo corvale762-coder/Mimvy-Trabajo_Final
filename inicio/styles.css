@@ -1,86 +1,153 @@
-/*botones*/
-.btn1 {
-    overflow: hidden;
-    position:relative;
-    text-decoration:none;
-    font-size:  15px;
-    background-color:rgba(0,0,0,0.3);
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    padding:10px 20px;
-    border-radius:30px;
-    display: inline-block; 
-    
-}
-header{
-  position: fixed;
-  z-index: 1000;
-}
-a {
-    color:black;
-    font-weight: 600;
-    font-family:"poppins", sans-serif;
+/* --- VARIABLES Y RESET --- */
+:root {
+    --blue: #8fd3ff;
 }
 
-.btn1:hover {
-  background-color:var(--blue);
-  color:rgb(255, 243, 243);
-}
-
-.menu {
-  display: flex;
-  gap: 15px;
-  margin-left: 40px; /* separa del logo */
-}
-
-.principal {
-  display: flex;
-  gap: 15px;
-  margin-left: 40px; /* separa del logo */
-}
-
-
-body{
-    background-color: #eafdfc;
-    font-family: 'Roboto', sans-serif;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
 
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #eafdfc;
+    margin: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-
-
-:root {
-  --blue: #8fd3ff;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
-  overflow-x: hidden;
-}
-/*Menu-barra*/
+/* --- HEADER Y NAVEGACIÓN --- */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+.menu {
+    display: flex;
+    gap: 15px;
+    margin-left: 40px;
+}
+
+a {
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn1 {
+    overflow: hidden;
+    position: relative;
+    font-size: 15px;
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn1:hover {
+    background-color: var(--blue);
+    color: rgb(255, 243, 243);
+}
+
+/* --- CARRUSEL COMO FONDO (CORRECCIÓN) --- */
+.carrusel {
+    position: relative; /* Necesario para que el contenido flote dentro */
+    width: 100%;
+    height: 500px;      /* Altura de la sección del fondo */
+    margin-top: 80px;   /* Para que no lo tape el header fixed */
+    overflow: hidden;
+}
+
+/* Esta es la capa que va sobre las imágenes */
+.contenido-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3); /* Oscurece un poco la imagen para leer el texto */
+    color: white;
+    text-align: center;
+}
+
+.contenido-overlay h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.carrusel ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    height: 100%;
+    animation: carrusel 20s infinite alternate ease-in-out;
+}
+
+.carrusel li {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+}
+
+.carrusel img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover; /* Clave para que la imagen no se deforme al ser fondo */
+}
+
+@keyframes carrusel {
+    0% { margin-left: 0; }
+    20% { margin-left: 0; }
+    25% { margin-left: -100%; }
+    45% { margin-left: -100%; }
+    50% { margin-left: -200%; }
+    70% { margin-left: -200%; }
+    75% { margin-left: -300%; }
+    100% { margin-left: -300%; }
+}
+
+/* --- MAIN Y SECCIONES --- */
+main {
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+}
+
+/* --- FOOTER CON ONDAS --- */
 footer {
     position: relative;
     width: 100%;
@@ -91,153 +158,79 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: auto;
 }
 
 footer .social-icon, footer .menu-footer {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
     flex-wrap: wrap;
     padding: 0;
-}
-
-footer .social-icon li, footer .menu-footer li {
     list-style: none;
 }
 
-footer .social-icon li a {
-    font-size: 2em;
-    margin: 0 10px;
-    display: inline-block;
-    transition: 0.5s;
-    color: #fff;
-}
-footer .menu-footer li a{
-    font-size: 1.2em;
-    margin: 0 10px;
-    display: inline-block;
-    transition: 0.5s;
-    color: #fff;
-    text-decoration: none;
-    opacity: 0.75;
-}
-footer .social-icon li a:hover {
-    transform: translateY(-10px);
-}
-footer .menu-footer li a:hover{
-  opacity: 1;
-}
 footer .social-icon li a img {
     width: 40px;
     height: 40px;
+    margin: 0 10px;
+    transition: 0.5s;
 }
 
-footer p{
-  color: #fff;
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  font-size: 1.1em;
-    position: relative;
-    overflow: hidden;
-}
-footer .onda{
-  position: absolute;
-  top: -100px;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background: url(/Imagenes/wave.png);
-  background-size: 1000px 100px;
-}
-footer .onda#onda1{
-  z-index: 1000;
-  opacity: 1;
-  bottom: 0;
-  animation: animateWave 4s linear infinite;
-}
-footer .onda#onda2{
-  z-index: 999;
-  opacity: 0.5;
-  bottom: 10px;
-  animation: animateWave_02 4s linear infinite;
-}
-footer .onda#onda3{
-  z-index: 1000;
-  opacity: 0.2;
-  bottom: 15px;
-  animation: animateWave 3s linear infinite;
-}
-footer .onda#onda4{
-  z-index: 999;
-  opacity: 0.7;
-  bottom: 20px;
-  animation: animateWave_02 3s linear infinite;
-}
-@keyframes animateWave {
-  0%
-  {
-    background-position-x: 1000px;
-  }
-  100% 
-  {
-    background-position-x: 0px;
-  }
-}
-@keyframes animateWave_02 {
-  0%
-  {
-    background-position-x: 0px;
-  }
-  100% 
-  {
-    background-position-x: 1000px;
-  }
-}
-.carrusel{
-  width: 900px;
-  height: auto;
-  margin: 50px auto 0;
-  overflow: hidden;
-  margin-bottom: 200px;
-}
-.carrusel ul{
-  display: flex;
-  padding: 0;
-  width: 400%;
-  animation: carrusel 20s infinite alternate ease-in-out;
-}
-.carrusel li{
-  width: 100%;
-  list-style: none;
-  position: relative;
+footer .social-icon li a:hover {
+    transform: translateY(-10px);
 }
 
-.carrusel img{
-  width: 900px; /* Ancho deseado */
-  height: 400px; /* Alto deseado */
-  object-fit: cover;
+footer .menu-footer li a {
+    font-size: 1.2em;
+    margin: 0 10px;
+    color: #fff;
+    opacity: 0.75;
 }
-@keyframes carrusel{
-  0%{margin-left: 0;}
-  20%{margin-left: 0;}
-  25%{margin-left: -100%;}
-  45%{margin-left: -100%;}
-  50%{margin-left: -200%;}
-  70%{margin-left: -200%;}
-  75%{margin-left: -300%;}
-  100%{margin-left: -300%;}
+
+footer .menu-footer li a:hover {
+    opacity: 1;
 }
-main {
-  margin-bottom: 200px;
+
+footer p {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 1.1em;
 }
-@media(max-width:991px){
-  body{
-    padding: 30px;
-  }
-  .carrusel{
+
+/* ONDAS ANIMADAS */
+footer .onda {
+    position: absolute;
+    top: -100px;
+    left: 0;
     width: 100%;
-  }
+    height: 100px;
+    background: url(/Imagenes/wave.png);
+    background-size: 1000px 100px;
+}
+
+footer #onda1 { z-index: 1000; opacity: 1; bottom: 0; animation: animateWave 4s linear infinite; }
+footer #onda2 { z-index: 999; opacity: 0.5; bottom: 10px; animation: animateWave_02 4s linear infinite; }
+footer #onda3 { z-index: 1000; opacity: 0.2; bottom: 15px; animation: animateWave 3s linear infinite; }
+footer #onda4 { z-index: 999; opacity: 0.7; bottom: 20px; animation: animateWave_02 3s linear infinite; }
+
+@keyframes animateWave {
+    0% { background-position-x: 1000px; }
+    100% { background-position-x: 0px; }
+}
+
+@keyframes animateWave_02 {
+    0% { background-position-x: 0px; }
+    100% { background-position-x: 1000px; }
+}
+
+/* --- RESPONSIVE --- */
+@media(max-width:991px){
+    .carrusel {
+        height: 350px;
+    }
+    .contenido-overlay h1 {
+        font-size: 2.5rem;
+    }
 }
