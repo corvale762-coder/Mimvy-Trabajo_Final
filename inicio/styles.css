@@ -194,10 +194,11 @@ footer .onda#onda4{
   }
 }
 .carrusel{
-  width: 1280px;
+  width: 900px;
   height: auto;
   margin: 50px auto 0;
   overflow: hidden;
+  margin-bottom: 200px;
 }
 .carrusel ul{
   display: flex;
@@ -212,7 +213,9 @@ footer .onda#onda4{
 }
 
 .carrusel img{
-  width: 100%;
+  width: 900px; /* Ancho deseado */
+  height: 600px; /* Alto deseado */
+  object-fit: cover;
 }
 @keyframes carrusel{
   0%{margin-left: 0;}
