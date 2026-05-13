@@ -36,19 +36,16 @@ a {
 }
 
 
-
 body{
-    height: 100vh;
     background-color: #eafdfc;
     font-family: 'Roboto', sans-serif;
     margin: 0;
 
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
     flex-direction: column;
-
+    min-height: 100vh;
 }
+
 
 
 :root {
@@ -139,7 +136,7 @@ footer p{
   text-align: center;
   margin-top: 15px;
   margin-bottom: 10px;
-  font-size: 1.1 em;
+  font-size: 1.1em;
     position: relative;
     overflow: hidden;
 }
@@ -200,6 +197,7 @@ footer .onda#onda4{
   width: 1280px;
   height: auto;
   margin: 50px auto 0;
+  overflow: hidden;
 }
 .carrusel ul{
   display: flex;
@@ -207,22 +205,12 @@ footer .onda#onda4{
   width: 400%;
   animation: carrusel 20s infinite alternate ease-in-out;
 }
-.carrusel il{
+.carrusel li{
   width: 100%;
   list-style: none;
   position: relative;
 }
-.texto{
-  position: absolutex;
-  text-align: center;
-  padding: 0 250px;
-  top: 250%;
-  color: #fff;
-}
-.texto h2{
-  font-size: 45px;
-  margin-bottom: 35px;
-}
+
 .carrusel img{
   width: 100%;
 }
@@ -235,4 +223,15 @@ footer .onda#onda4{
   70%{margin-left: -200%;}
   75%{margin-left: -300%;}
   100%{margin-left: -300%;}
+}
+main {
+  margin-bottom: 200px;
+}
+@media(max-width:991px){
+  body{
+    padding: 30px;
+  }
+  .carrusel{
+    width: 100%;
+  }
 }
