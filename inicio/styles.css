@@ -11,7 +11,10 @@
     display: inline-block; 
     
 }
-
+header{
+  position: fixed;
+  z-index: 1000;
+}
 a {
     color:black;
     font-weight: 600;
@@ -214,7 +217,7 @@ footer .onda#onda4{
 
 .carrusel img{
   width: 900px; /* Ancho deseado */
-  height: 600px; /* Alto deseado */
+  height: 400px; /* Alto deseado */
   object-fit: cover;
 }
 @keyframes carrusel{
