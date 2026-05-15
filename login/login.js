@@ -19,4 +19,21 @@ body.addEventListener("mousemove", (m) => {
     }
   }
 });
-inputUsuario;
+inputUsuario.addEventListener("focus", () => {
+  seguirPunteroMouse = false;
+});
+inputUsuario.addEventListener("blur", () => {
+  seguirPunteroMouse = true;
+});
+inputClave.addEventListener("focus", () => {
+  seguirPunteroMouse = false;
+  let cont = 1;
+  const cubrirOjo = setInterval(() => {
+    monster.src = "imagenes-login/cubrir/" + cont + ".png";
+    if (cont < 8) {
+      cont++;
+    } else {
+      clearInterval(cubrirOjo);
+    }
+  }, 1000);
+});
