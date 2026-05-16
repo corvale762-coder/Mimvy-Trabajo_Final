@@ -1,168 +1,286 @@
-/*botones*/
-.btn1 {
-    overflow: hidden;
-    position:relative;
-    text-decoration:none;
-    font-size:  15px;
-    background-color:rgba(0,0,0,0.3);
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    padding:10px 20px;
-    border-radius:30px;
-    display: inline-block; 
-    
+/* Reset general */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-a {
-    color:black;
-    font-weight: 600;
-    font-family:"poppins", sans-serif;
-}
-
-.btn1:hover {
-  background-color:var(--blue);
-  color:rgb(255, 243, 243);
-}
-
-.menu {
-  display: flex;
-  gap: 15px;
-  margin-left: 40px; /* separa del logo */
-}
-
-.principal {
-  display: flex;
-  gap: 15px;
-  margin-left: 40px; /* separa del logo */
-}
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
+/* Fondo página */
 body{
-    height: 100vh;
-    background-color: #eafdfc;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-
+background:#f4f4f4;
 }
 
-.carrusel{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 80vh;
+
+/* HEADER */
+header{
+height:80px;
+background:#c8dcf7;
+
+display:flex;
+align-items:center;
+padding:0 20px;
+/* espacio entre iconos */
+justify-content:space-between;
+gap:60px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
-.imagenes{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+/* HAMBURGUESA */
+.menu-icon{
+width:30px;
+cursor:pointer;
+position:relative;
+z-index:2000;
+transition:.25s ease;
 }
 
-.img{
-    height: 400px;
-    width: 576px;
-    border-radius: 15px;
-    object-fit: cover;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.85);
+/* crece al pasar mouse */
+.menu-icon:hover{
+transform:scale(1.08);
 }
 
-.texto{
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 250px;
-    height: 70px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center;  <-- Eliminamos esta línea */
-    
-    padding-top: 15px; /* Ajusta este valor para bajar el h3 cuanto necesites */
-    box-sizing: border-box;
-
-    background-color: rgba(63, 106, 138, 0.21);
-    backdrop-filter: blur(20px);
-    border-radius: 30px;
-
-    overflow: hidden;
-    transition: all 0.5s;
+/* se hunde al click */
+.menu-icon:active{
+transform:scale(.92);
 }
 
-.texto h3{
-    color: white;
-    font-size: 27px;
-    margin: 0;
+
+/* LOGO */
+.logo{
+height:65px;
+width:65px;
+border-radius:100%;
+object-fit:cover;
 }
 
-.texto p{
-    color: white;
-    font-size: 16px;
-    margin: 0;
-    opacity: 0;
-    transition: opacity 0.5s;
-    text-align: center;
+
+/* LOGIN */
+.login-btn{
+
+margin-left:auto;
+text-decoration:none;
+color:white;
+background:#2563eb;
+padding:12px 18px;
+border-radius:10px;
+transition:.3s;
 }
 
-/* HOVER */
-.imagenes:hover .texto{
-    transform: translate(-50%, -80px);
-    height: 140px;
-    background-color: rgba(63, 106, 138, 0.7);
+.login-btn:hover{
+background:#1d4ed8;
 }
 
-.imagenes:hover .texto p{
-    opacity: 1;
+
+/* SIDEBAR / barra lateral*/
+.menu{
+position:fixed;
+
+top:0;
+
+/* oculto fuera pantalla */
+left:-320px;
+
+width:320px;
+height:100vh;
+overflow-y:auto;
+background:linear-gradient(180deg,#111827,#1e293b);
+
+padding-top:30px;
+
+display:flex;
+flex-direction:column;
+
+transition:.45s ease;
+
+z-index:1001;
 }
 
-.atras img,
-.adelante img{
-    width: 40px;
-    cursor: pointer;
+
+/* cuando JS agrega active */
+.menu.active{
+left:0;
 }
 
-:root {
-  --blue: #8fd3ff;
+
+/* LINKS */
+.menu a,
+.accordion-btn{
+
+width:100%;
+
+padding:18px 25px;
+
+border:none;
+background:none;
+
+color:white;
+
+text-decoration:none;
+
+cursor:pointer;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+font-size:16px;
+
+transition:.3s;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  outline: none;
-  border: none;
-  text-transform: capitalize;
-  transition: 0.2s linear;
+
+/* hover links */
+.menu a:hover,
+.accordion-btn:hover{
+
+background:rgba(255,255,255,.05);
+
+padding-left:35px;
+
+border-left:4px solid #2563eb;
 }
 
-html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
-  overflow-x: hidden;
-}
-/*Menu-barra*/
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+/* SUBMENÚ */
+.submenu{
+
+max-height:0;
+
+overflow:hidden;
+
+background:#22304d;
+
+transition:max-height .45s ease;
 }
 
+
+/* links internos */
+.submenu a{
+padding-left:55px;
+}
+
+
+/* flecha */
+.arrow{
+transition:.35s;
+}
+
+
+/* gira flecha */
+.accordion.active .arrow{
+transform:rotate(180deg);
+}
+
+
+/* abre submenu */
+.accordion.active .submenu{
+max-height:300px;
+}
+
+
+/* overlay oscuro */
+.overlay{
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.45);
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.35s;
+
+z-index:999;
+}
+
+
+/* visible */
+.overlay.active{
+opacity:1;
+pointer-events:auto;
+}
+
+/* Encabezado del menú lateral */
+.menu-header{
+
+/* activa flexbox → pone elementos en fila */
+display:flex;
+
+/* centra verticalmente logo y texto */
+align-items:center;
+
+/* espacio entre logo y nombre */
+gap:12px;
+
+/* espacio interno alrededor */
+padding:45px 20px 20px 50px;
+
+/* separación debajo del encabezado */
+margin-bottom:60px;
+
+/* color del texto */
+color:white;
+
+/* línea divisora inferior */
+border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+/*Modifica el tamaño del texto dentro del menú */
+.menu-header h2{
+    font-family:'Poppins', sans-serif;
+    font-size:28px;
+    font-weight:400;
+}
+
+
+
+/* Imagen del logo dentro del menú */
+.menu-logo{
+
+/* ancho fijo */
+width:45px;
+
+/* alto fijo */
+height:45px;
+
+/* lo vuelve circular */
+border-radius:50%;
+
+/* recorta y ajusta imagen sin deformarla */
+object-fit:cover;
+position:relative;
+top:-3px;
+}
+
+@media (max-width:768px){
+
+header{
+gap:15px;
+padding:0 15px;
+}
+
+.logo{
+width:50px;
+height:50px;
+}
+
+.menu{
+width:260px;
+left:-260px;
+}
+
+.menu-header h2{
+font-size:22px;
+}
+
+.login-btn{
+padding:10px 14px;
+font-size:14px;
+}
+
+}

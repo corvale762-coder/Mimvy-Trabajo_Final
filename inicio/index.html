@@ -1,80 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIMVY</title>
+
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="buhos.ico">
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body> 
+
+<body>
+
     <header>
-         
-        <img src="/imagenes/buho.jpg.ico" alt="Buho" width="50" loading="lazy"> 
-        <a class="btn1" href="../inicio/index.html">Inicio</a>
-        <h1>Mateo vez mis cambios?</h1>
-        
-        <nav class="menu">
-            <a class="btn1" href="../inicio/index.html">Inicio</a>
-            <a class="btn1" href="../deportes/deportes.html" >Deportes</a>
-            <a class="btn1" href="">Horarios</a>
-            <a class="btn1" href="">Información</a>
-            <a class="btn1" href="login.html">Inicio sesión</a>
-            
-        </nav>
+
+        <img src="/imagenes-1/menu.png" alt="Menu" width="40" class="menu-icon">
+
+        <img src="/imagenes-1/buhos.ico" alt="Buho" width="70">
+
+        <a href="login.html" class="login-btn">Iniciar sesión</a>
 
     </header>
-     
-    <main>
-        <section id="inicio" class="inicio">
-            <h2>Bienvenido a MIMVY</h2>
-        </section>
-        <section id="informacion" class="informacion">
-            <h2>Acerca de esta página</h2>
-        </section>
-        <section id="deportes" class="deportes">
-            <h2>Los deportes que tenemos</h2>
-        </section>
-        <section id="iniciar-sesion" class="iniciar-sesion">
-            <h2>Ingresa tu usuario y contraseña</h2>
-        </section>
-    </main>
-    <div class="carrusel">
-        <div class="atras">
-            <img id="atras" src="/imagenes/atras.webp" alt="atras" loading="lazy">
-        </div>
-        <div class="imagenes">
-            <div id="img">
-                <img class="img" src="/imagenes/imagen1.webp" alt="imagen1" loading="lazy">
-            </div>
-                <div id="texto" class="texto">
-                <h3>Futbol</h3>
-                <p>Aquí encontraras toda la información sobre futbol</p>
-            </div>
-        </div>
-        <div class="imagenes">
-            <div id="img">
-                <img class="img" src="/imagenes/imagen2.webp" alt="imagen1" loading="lazy">
-            </div>
-                <div id="texto" class="texto">
-                <h3>baloncesto</h3>
-                <p>Aquí encontraras toda la información sobre futbol</p>
-            </div>
-        </div>
-        <div class="imagenes">
-            <div id="img">
-                <img class="img" src="/imagenes/imagen3.webp" alt="imagen1" loading="lazy">
-            </div>
-                <div id="texto" class="texto">
-                <h3>voleyboll</h3>
-                <p>Aquí encontraras toda la información sobre futbol</p>
-            </div>
-        </div>
-        <div class="adelante" id="adelante">
-            <img src="imagenes/adelante.png" alt="adelante" loading="lazy">
+
+    <nav class="menu">
+
+    <div class="menu-header">
+        <img src="/imagenes-1/buhos.icogit" class="menu-logo">
+        <h2>MIMVY</h2>
+    </div>
+
+    <a href="#">Inicio</a>
+
+    <div class="accordion">
+        <button class="accordion-btn">
+             Deportes
+            <span class="arrow">▼</span>
+        </button>
+
+        <div class="submenu">
+            <a href="#">Fútbol</a>
+            <a href="#">Baloncesto</a>
+            <a href="#">Voleibol</a>
         </div>
     </div>
-    <div class="puntos" id="puntos"></div>
+
+    <div class="accordion">
+        <button class="accordion-btn">
+            👥 Equipos
+            <span class="arrow">▼</span>
+        </button>
+
+        <div class="submenu">
+            <a href="#">Fútbol</a>
+            <a href="#">Baloncesto</a>
+            <a href="#">Voleibol</a>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-btn">
+            📅 Calendario
+            <span class="arrow">▼</span>
+        </button>
+
+        <div class="submenu">
+            <a href="#">Fútbol</a>
+            <a href="#">Baloncesto</a>
+            <a href="#">Voleibol</a>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-btn">
+            🏆 Resultados
+            <span class="arrow">▼</span>
+        </button>
+
+        <div class="submenu">
+            <a href="#">Fútbol</a>
+            <a href="#">Baloncesto</a>
+            <a href="#">Voleibol</a>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-btn">
+            📊 Clasificación
+            <span class="arrow">▼</span>
+        </button>
+
+        <div class="submenu">
+            <a href="#">Fútbol</a>
+            <a href="#">Baloncesto</a>
+            <a href="#">Voleibol</a>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-btn">
+            ℹ Información
+            <span class="arrow">▼</span>
+        </button>
+
+        <div class="submenu">
+            <a href="#">Reglamento</a>
+            <a href="#">Contacto</a>
+            <a href="#">Sobre torneo</a>
+        </div>
+    </div>
+
+</nav>
+
+<div class="overlay"></div>
+
     <script src="scrpt.js"></script>
+
 </body>
+
 </html>
