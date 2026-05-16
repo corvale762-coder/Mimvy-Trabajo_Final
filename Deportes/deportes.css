@@ -1,93 +1,23 @@
 /* ================= CONFIGURACIÓN GLOBAL ================= */
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial Black', Arial, sans-serif;
 }
 
-html {
+html{
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
-body {
+body{
     background: #eef7f7;
     color: #222;
-
-    /* 1. EL TÍTULO "DEPORTES" EN AZUL */
-.logo h2 {
-    color: #2563eb; /* Azul brillante */
-    font-size: 28px;
-    font-weight: 900;
-    letter-spacing: -1px;
-}
-
-/* ================= BARRA DE NAVEGACIÓN (HEADER) ================= */
-.logo h2 {
-    color: #2563eb; /* El título "DEPORTES" en el header será azul brillante */
-    font-size: 28px;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
-/* ================= SECCIÓN HERO (ADIÓS AL GRIS, HOLA A LOS COLORES BONITOS) ================= */
-.hero {
-    width: 100%;
-    height: 100vh;
-    /* 1. Cambiamos el fondo gris plano por un degradado dinámico "bonito" */
-    /* Este gradiente va de un Azul Eléctrico a un Púrpura Vibrante */
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.75), rgba(126, 34, 206, 0.9)), 
-                url("../imagenes/imagen1.webp") center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* EFECTOS DE LUZ ADICIONALES PARA MÁS COLOR */
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 400px; height: 400px;
-    background: #00ffcc; /* Brillo Turquesa */
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.3;
-    top: 100px; left: -100px;
-}
-
-.hero-contenido {
-    max-width: 1100px;
-    z-index: 2; /* Asegura que el texto esté sobre los efectos de luz */
-}
-
-/* EL TÍTULO GIGANTE DE 100PX EN AZUL */
-.hero h1 {
-    font-size: 100px;
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 0.9;
-    letter-spacing: -4px;
-    margin-bottom: 20px;
-    /* CAMBIO CLAVE: El título ahora es azul brillante sobre el fondo */
-    color: #2563eb; 
-    text-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para que se despegue */
-}
-
-.hero p {
-    font-size: 26px;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    color: white; /* El párrafo de bienvenida sigue siendo blanco */
-}
 }
 
 /* ================= HEADER ================= */
-.header {
+.header{
     width: 100%;
     height: 90px;
     background: white;
@@ -101,53 +31,119 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.logo { display: flex; align-items: center; gap: 10px; }
-.logo img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
-.logo h2 { color: #0f172a; font-size: 24px; }
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-.menu { display: flex; gap: 35px; }
-.menu a { text-decoration: none; color: #333; font-weight: bold; transition: 0.3s; }
-.menu a:hover { color: #2563eb; }
+.logo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
-.btn-login {
+.logo h2{
+    color: #2563eb;
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.menu{
+    display: flex;
+    gap: 35px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu a:hover{
+    color: #2563eb;
+}
+
+.btn-login{
     text-decoration: none;
     background: #2563eb;
     color: white;
     padding: 12px 25px;
     border-radius: 10px;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-/* ================= HERO (EL GRAN IMPACTO) ================= */
-.hero {
+.btn-login:hover{
+    transform: scale(1.05);
+}
+
+/* ================= HERO ================= */
+.hero{
     width: 100%;
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url("../imagenes/imagen1.webp") center/cover;
+
+    background:
+    linear-gradient(
+        rgba(5, 15, 35, 0.85),
+        rgba(5, 15, 35, 0.90)
+    ),
+    url("imagenes/imagen1.webp");
+
+    background-size: cover;
+    background-position: center;
+
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
     padding: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero h1 {
-    font-size: 100px; /* Tamaño solicitado */
+.hero::before{
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: #2563eb;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    top: 100px;
+    left: -100px;
+}
+
+.hero-contenido{
+    max-width: 1100px;
+    z-index: 2;
+}
+
+.hero h1{
+    font-size: 100px;
     font-weight: 900;
     text-transform: uppercase;
     line-height: 0.9;
     letter-spacing: -4px;
     margin-bottom: 20px;
+
+    text-shadow:
+    0 0 10px rgba(37,99,235,0.5),
+    0 10px 30px rgba(0,0,0,0.6);
 }
 
-.hero p {
-    font-size: 24px;
+.hero p{
+    font-size: 26px;
     max-width: 800px;
     margin: 0 auto 40px;
 }
 
-.btn-explorar {
+.btn-explorar{
     text-decoration: none;
     background: #2563eb;
     color: white;
@@ -156,17 +152,24 @@ body {
     font-weight: bold;
     font-size: 20px;
     transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.btn-explorar:hover{
+    background: transparent;
+    border: 2px solid #2563eb;
+    transform: scale(1.05);
 }
 
 /* ================= ACORDEÓN ================= */
-.titulo-seccion {
+.titulo-seccion{
     text-align: center;
     font-size: 45px;
     margin: 100px 0 50px;
     text-transform: uppercase;
 }
 
-.acordeon-container {
+.acordeon-container{
     display: flex;
     width: 90%;
     max-width: 1200px;
@@ -175,7 +178,7 @@ body {
     margin: 0 auto 100px;
 }
 
-.acordeon-item {
+.acordeon-item{
     flex: 1;
     border-radius: 30px;
     background-size: cover;
@@ -187,13 +190,23 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.item1 { background-image: linear-gradient(transparent, rgba(0,0,0,0.9)), url("../imagenes/imagen1.webp"); }
-.item2 { background-image: linear-gradient(transparent, rgba(0,0,0,0.9)), url("../imagenes/imagen2.webp"); }
-.item3 { background-image: linear-gradient(transparent, rgba(0,0,0,0.9)), url("../imagenes/imagen3.webp"); }
+.item1{
+    background-image: linear-gradient(transparent, rgba(0,0,0,0.9)), url("../imagenes/imagen1.webp");
+}
 
-.acordeon-contenido {
+.item2{
+    background-image: linear-gradient(transparent, rgba(0,0,0,0.9)), url("../imagenes/imagen2.webp");
+}
+
+.item3{
+    background-image: linear-gradient(transparent, rgba(0,0,0,0.9)), url("../imagenes/imagen3.webp");
+}
+
+.acordeon-contenido{
     position: absolute;
-    bottom: 0; left: 0; width: 100%;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     padding: 40px;
     color: white;
     opacity: 0;
@@ -201,9 +214,12 @@ body {
     transition: all 0.4s ease 0.2s;
 }
 
-.acordeon-contenido h3 { font-size: 48px; margin-bottom: 10px; }
+.acordeon-contenido h3{
+    font-size: 48px;
+    margin-bottom: 10px;
+}
 
-.btn-ver {
+.btn-ver{
     display: inline-block;
     padding: 10px 25px;
     background: white;
@@ -213,29 +229,175 @@ body {
     font-weight: bold;
 }
 
-.acordeon-item:hover, .acordeon-item.active { flex: 5; }
-.acordeon-item:hover .acordeon-contenido, .acordeon-item.active .acordeon-contenido {
+.acordeon-item:hover,
+.acordeon-item.active{
+    flex: 5;
+}
+
+.acordeon-item:hover .acordeon-contenido,
+.acordeon-item.active .acordeon-contenido{
     opacity: 1;
     transform: translateY(0);
 }
 
-/* ================= FRANJA INFO Y FOOTER ================= */
-.informacion {
+/* ================= INFORMACIÓN ================= */
+.informacion{
     width: 100vw;
-    background: white;
     padding: 120px 20px;
     text-align: center;
     border-top: 10px solid #2563eb;
+
+    background:
+    linear-gradient(
+        rgba(255,255,255,0.88),
+        rgba(255,255,255,0.88)
+    ),
+    url("WhatsApp Image 2026-05-07 at 3.38.26 PM.jpeg");
+
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.informacion h2 { font-size: 60px; text-transform: uppercase; margin-bottom: 20px; }
+.informacion h2{
+    font-size: 60px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
 
-.footer {
-    width: 100vw;
-    background: #2563eb;
-    color: white;
-    text-align: center;
-    padding: 50px;
-    font-weight: bold;
-    letter-spacing: 2px;
+.informacion p{
+    font-size: 22px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* IMAGEN DEPORTIVA */
+.img-deportes{
+    width: 380px;
+    max-width: 90%;
+    display: block;
+    margin: 40px auto;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+.img-deportes:hover{
+    transform: scale(1.05);
+}
+
+/* ================= FOOTER ================= */
+footer {
+    position: relative;
+    width: 100%;
+    background: rgb(49, 129, 249);
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .social-icon, footer .menu-footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+footer .social-icon li, footer .menu-footer li {
+    list-style: none;
+}
+
+footer .social-icon li a {
+    font-size: 2em;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    color: #fff;
+}
+footer .menu-footer li a{
+    font-size: 1.2em;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.75;
+}
+footer .social-icon li a:hover {
+    transform: translateY(-10px);
+}
+footer .menu-footer li a:hover{
+  opacity: 1;
+}
+footer .social-icon li a img {
+    width: 40px;
+    height: 40px;
+}
+
+footer p{
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+    position: relative;
+    overflow: hidden;
+}
+footer .onda{
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(/Imagenes/wave.png);
+  background-size: 1000px 100px;
+}
+footer .onda#onda1{
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWave 4s linear infinite;
+}
+footer .onda#onda2{
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave_02 4s linear infinite;
+}
+footer .onda#onda3{
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWave 3s linear infinite;
+}
+footer .onda#onda4{
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave_02 3s linear infinite;
+}
+@keyframes animateWave {
+  0%
+  {
+    background-position-x: 1000px;
+  }
+  100% 
+  {
+    background-position-x: 0px;
+  }
+}
+@keyframes animateWave_02 {
+  0%
+  {
+    background-position-x: 0px;
+  }
+  100% 
+  {
+    background-position-x: 1000px;
+  }
 }
