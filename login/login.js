@@ -25,6 +25,18 @@ inputUsuario.addEventListener("focus", () => {
 inputUsuario.addEventListener("blur", () => {
   seguirPunteroMouse = true;
 });
+inputUsuario.addEventListener("keyup", () => {
+  let usuario = inputUsuario.value.length;
+  if (usuario >= 0 && usuario <= 5) {
+    monster.src = "imagenes-login/leer/1.png";
+  } else if (usuario >= 6 && usuario <= 14) {
+    monster.src = "imagenes-login/leer/2.png";
+  } else if (usuario >= 15 && usuario <= 20) {
+    monster.src = "imagenes-login/leer/3.png";
+  } else {
+    monster.src = "imagenes-login/leer/4.png";
+  }
+});
 inputClave.addEventListener("focus", () => {
   seguirPunteroMouse = false;
   let cont = 1;
@@ -35,5 +47,17 @@ inputClave.addEventListener("focus", () => {
     } else {
       clearInterval(cubrirOjo);
     }
-  }, 1000);
+  }, 60);
+});
+inputClave.addEventListener("blur", () => {
+  seguirPunteroMouse = true;
+  let cont = 7;
+  const descubrirOjo = setInterval(() => {
+    monster.src = "imagenes-login/cubrir/" + cont + ".png";
+    if (cont > 1) {
+      cont--;
+    } else {
+      clearInterval(descubrirOjo);
+    }
+  }, 60);
 });
