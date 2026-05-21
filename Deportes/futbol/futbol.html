@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIMVY - Panel de Fútbol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../deportes.css">
+    <link rel="stylesheet" href="futbol.css">
+</head>
+<body>
+
+    <header class="header-futbol">
+        <div class="logo-futbol">
+            <img src="/Imagenes/buhos.ico" alt="Buho">
+            <h2>MIMVY <span>FÚTBOL</span></h2>
+        </div>
+        <nav class="menu-futbol">
+            <a href="../deportes.html" class="btn-regresar">← VOLVER A DEPORTES</a>
+        </nav>
+    </header>
+
+    <main class="contenedor-futbol">
+        
+        <div class="titulo-pagina">
+            <h1><span class="gestion">GESTIÓN DE</span><br><span class="partidos-tit">PARTIDOS</span></h1>
+        </div>
+
+        <section class="tarjeta-panel">
+            <h3 id="form-titulo">PROGRAMAR NUEVO ENCUENTRO</h3>
+            <form id="form-partido">
+                <input type="hidden" id="partido-id">
+                
+                <div class="campo-bloque">
+                    <label for="fecha">FECHA</label>
+                    <input type="date" id="fecha" required>
+                </div>
+                <div class="campo-bloque">
+                    <label for="hora">HORA</label>
+                    <input type="time" id="hora" required>
+                </div>
+                <div class="campo-bloque">
+                    <label for="encuentro">ENCUENTRO</label>
+                    <input type="text" id="encuentro" placeholder="Ej: Real Madrid VS Barcelona" required>
+                </div>
+                <div class="campo-bloque">
+                    <label for="fase">FASE / GRUPO</label>
+                    <input type="text" id="fase" placeholder="Ej: Semifinal" required>
+                </div>
+                
+                <div class="bloque-acciones">
+                    <button type="submit" id="btn-guardar" class="btn-comic-primario">GUARDAR ENCUENTRO</button>
+                    <button type="button" id="btn-cancelar" class="btn-comic-secundario oculto" onclick="limpiarFormulario()">CANCELAR</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="tarjeta-panel">
+            <h3 class="titulo-tabla">CALENDARIO DE ENCUENTROS</h3>
+            <div class="tabla-scroll">
+                <table class="tabla-comic">
+                    <thead>
+                        <tr>
+                            <th>FECHA</th>
+                            <th>HORA</th>
+                            <th>ENCUENTRO</th>
+                            <th>FASE / GRUPO</th>
+                            <th>CONVOCADOS</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-partidos">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-futbol">
+        <div class="ondas">
+            <div class="onda" id="onda1"></div>
+            <div class="onda" id="onda2"></div>
+            <div class="onda" id="onda3"></div>
+            <div class="onda" id="onda4"></div>
+        </div>
+        <p>&copy; 2026 MIMVY | PANEL DE CONTROL DEPORTIVO</p>
+    </footer>
+
+    <script src="futbol.js"></script>
+</body>
+</html>
