@@ -1,61 +1,48 @@
-let imagenes = [
-  {
-    url: "imagen1.webp",
-    nombre: "Futbol",
-    descripcion: "Aquí encontraras toda la información sobre futbol",
-  },
-  {
-    url: "imagen2.webp",
-    nombre: "Baloncesto",
-    descripcion: "Aquí encontraras toda la información sobre baloncesto",
-  },
-  {
-    url: "imagen3.webp",
-    nombre: "Volleyball",
-    descripcion: "Aquí encontraras toda la información sobre volleyball",
-  },
-];
+/* selecciona hamburguesa */
+const menuIcon = document.querySelector(".menu-icon");
 
-let atras = document.getElementById("atras");
-let adelante = document.getElementById("adelante");
-let imagen = document.getElementById("img");
-let puntos = document.getElementById("puntos");
-let texto = document.getElementById("texto");
-let actual = 0;
+/* selecciona sidebar */
+const menu = document.querySelector(".menu");
 
-atras.addEventListener("click", function () {
-  actual -= 1;
+/* selecciona fondo oscuro */
+const overlay = document.querySelector(".overlay");
 
-  if (actual == -1) {
-    actual = imagenes.length - 1;
-  }
-  imagen.innerHTML = `<img class="img" src="${imagenes[actual].url}" alt="logo pagina" loading="lazy"></img> `;
-  texto.innerHTML = ` 
-  <h3>${imagenes[actual].nombre}</h3>
-  <p>${imagenes[actual].descripcion}</p>
-  `;
-  posicionCarrusel();
+
+/* abrir / cerrar menú */
+menuIcon.addEventListener("click",()=>{
+
+    menu.classList.toggle("active");
+
+    overlay.classList.toggle("active");
+
 });
-adelante.addEventListener("click", function () {
-  actual += 1;
 
-  if (actual == imagenes.length) {
-    actual = 0;
-  }
-  imagen.innerHTML = `<img class="img" src="${imagenes[actual].url}" alt="logo pagina" loading="lazy"></img> `;
-  texto.innerHTML = ` 
-  <h3>${imagenes[actual].nombre}</h3>
-  <p>${imagenes[actual].descripcion}</p>
-  `;
-  posicionCarrusel();
+
+/* cerrar tocando afuera */
+overlay.addEventListener("click",()=>{
+
+    menu.classList.remove("active");
+
+    overlay.classList.remove("active");
+
 });
-function posicionCarrusel() {
-  puntos.innerHTML = "";
-  for (var i = 0; i < imagenes.length; i++) {
-    if (i == actual) {
-      puntos.innerHTML += '<p class="bold">.</p>';
-    } else {
-      puntos.innerHTML += "<p>.</p>";
-    }
-  }
-}
+
+
+/* selecciona acordeones */
+const accordions =
+document.querySelectorAll(".accordion");
+
+
+accordions.forEach(item=>{
+
+    const btn =
+    item.querySelector(".accordion-btn");
+
+
+    btn.addEventListener("click",()=>{
+
+        item.classList.toggle("active");
+
+    });
+
+});

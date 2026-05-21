@@ -1,3 +1,4 @@
+
 /* --- VARIABLES Y RESET --- */
 :root {
     --blue: #8fd3ff;
@@ -20,10 +21,320 @@ html {
 body {
     background-color: #eafdfc;
     margin: 0;
+
+
+/* Reset general */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+left:0;
+right:0;
+
+height:80px;
+background:#c8dcf7;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:0 20px;
+gap:60px;
+
+z-index:1000;
+
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+
+/* HAMBURGUESA */
+.menu-icon{
+width:30px;
+cursor:pointer;
+position:relative;
+z-index:2000;
+transition:.25s ease;
+}
+
+/* crece al pasar mouse */
+.menu-icon:hover{
+transform:scale(1.08);
+}
+
+/* se hunde al click */
+.menu-icon:active{
+transform:scale(.92);
+}
+
+
+/* LOGO */
+.logo{
+height:65px;
+width:65px;
+border-radius:100%;
+object-fit:cover;
+}
+
+
+/* LOGIN */
+.login-btn{
+
+margin-left:auto;
+text-decoration:none;
+color:white;
+background:#2563eb;
+padding:12px 18px;
+border-radius:10px;
+transition:.3s;
+}
+
+.login-btn:hover{
+background:#1d4ed8;
+}
+
+
+/* SIDEBAR / barra lateral*/
+.menu{
+position:fixed;
+
+top:0;
+
+/* oculto fuera pantalla */
+left:-320px;
+
+width:320px;
+height:100vh;
+overflow-y:auto;
+background:linear-gradient(180deg,#111827,#1e293b);
+
+padding-top:30px;
+
+display:flex;
+flex-direction:column;
+
+transition:.45s ease;
+
+z-index:1001;
+}
+
+
+/* cuando JS agrega active */
+.menu.active{
+left:0;
+}
+
+
+/* LINKS */
+.menu a,
+.accordion-btn{
+
+width:100%;
+
+padding:18px 25px;
+
+border:none;
+background:none;
+
+color:white;
+
+text-decoration:none;
+
+cursor:pointer;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+font-size:16px;
+
+transition:.3s;
+}
+
+
+/* hover links */
+.menu a:hover,
+.accordion-btn:hover{
+
+background:rgba(255,255,255,.05);
+
+padding-left:35px;
+
+border-left:4px solid #2563eb;
+}
+
+
+/* SUBMENÚ */
+.submenu{
+
+max-height:0;
+
+overflow:hidden;
+
+background:#22304d;
+
+transition:max-height .45s ease;
+}
+
+
+/* links internos */
+.submenu a{
+padding-left:55px;
+}
+
+
+/* flecha */
+.arrow{
+transition:.35s;
+}
+
+
+/* gira flecha */
+.accordion.active .arrow{
+transform:rotate(180deg);
+}
+
+
+/* abre submenu */
+.accordion.active .submenu{
+max-height:300px;
+}
+
+
+/* overlay oscuro */
+.overlay{
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.45);
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.35s;
+
+z-index:999;
+}
+
+
+/* visible */
+.overlay.active{
+opacity:1;
+pointer-events:auto;
+}
+
+/* Encabezado del menú lateral */
+.menu-header{
+
+/* activa flexbox → pone elementos en fila */
+display:flex;
+
+/* centra verticalmente logo y texto */
+align-items:center;
+
+/* espacio entre logo y nombre */
+gap:12px;
+
+/* espacio interno alrededor */
+padding:45px 20px 20px 50px;
+
+/* separación debajo del encabezado */
+margin-bottom:60px;
+
+/* color del texto */
+color:white;
+
+/* línea divisora inferior */
+border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+/*Modifica el tamaño del texto dentro del menú */
+.menu-header h2{
+    font-family:'Poppins', sans-serif;
+    font-size:28px;
+    font-weight:400;
+}
+
+
+
+/* Imagen del logo dentro del menú */
+.menu-logo{
+
+/* ancho fijo */
+width:45px;
+
+/* alto fijo */
+height:45px;
+
+/* lo vuelve circular */
+border-radius:50%;
+
+/* recorta y ajusta imagen sin deformarla */
+object-fit:cover;
+position:relative;
+top:-3px;
+}
+
+@media (max-width:768px){
+
+header{
+gap:15px;
+padding:0 15px;
+}
+
+.logo{
+width:50px;
+height:50px;
+}
+
+.menu{
+width:260px;
+left:-260px;
+}
+
+.menu-header h2{
+font-size:22px;
+}
+
+.login-btn{
+padding:10px 14px;
+font-size:14px;
+}
+}
+
+
+/* --- VARIABLES Y RESET --- */
+:root {
+    --blue: #8fd3ff;
+}
+
+
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #eafdfc;
+    margin: 0;
+
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
 
 /* --- HEADER Y NAVEGACIÓN --- */
 header {
@@ -68,6 +379,32 @@ a {
     background-color: var(--blue);
     color: rgb(255, 243, 243);
 }
+
+
+
+a {
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn1 {
+    overflow: hidden;
+    position: relative;
+    font-size: 15px;
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn1:hover {
+    background-color: var(--blue);
+    color: rgb(255, 243, 243);
+}
+
 
 /* --- CARRUSEL COMO FONDO (CORRECCIÓN) --- */
 .carrusel {
@@ -233,4 +570,4 @@ footer #onda4 { z-index: 999; opacity: 0.7; bottom: 20px; animation: animateWave
     .contenido-overlay h1 {
         font-size: 2.5rem;
     }
-}
+}}
