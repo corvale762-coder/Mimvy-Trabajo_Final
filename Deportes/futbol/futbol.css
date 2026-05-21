@@ -309,3 +309,15 @@ body {
 
 @keyframes animateWave { 0% { background-position-x: 1000px; } 100% { background-position-x: 0px; } }
 @keyframes animateWave_02 { 0% { background-position-x: 0px; } 100% { background-position-x: 1000px; } }
+
+/* Efecto de parpadeo para los partidos En Vivo */
+@keyframes parpadeo {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+span[style*="#ef4444"] {
+    animation: parpadeo 1.5s infinite;
+    box-shadow: 2px 2px 0px #222;
+}
