@@ -146,25 +146,18 @@ body{
 
     animation: aparecer 1s ease;
 }
-.vive{
+
+.vive {
     display: block;
-
     font-family: 'Bangers', cursive;
-
     font-size: 170px;
-
     color: white;
-
     letter-spacing: 8px;
-
-    transform: rotate(-3deg);
-
-    text-shadow:
-    0 5px 15px rgba(0,0,0,0.6);
-
+    transform: rotate(-3deg); /* Quitamos el top: 90px que lo tiraba hacia abajo */
+    text-shadow: 0 5px 15px rgba(0,0,0,0.6);
     position: relative;
-    top: 90px;
 }
+
 .deporte{
     display: block;
 

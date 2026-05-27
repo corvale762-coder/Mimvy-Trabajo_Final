@@ -7,7 +7,6 @@ let partidos = JSON.parse(localStorage.getItem('partidos')) || [
 // ================= CONFIGURACIÓN DE SEGURIDAD DINÁMICA =================
 let esAdmin = false; 
 
-// Elementos del DOM originales
 const tablaCuerpo = document.getElementById('lista-partidos');
 const formulario = document.getElementById('form-partido');
 const sectionFormulario = document.querySelector('.tarjeta-panel'); 
@@ -21,8 +20,8 @@ const formTitulo = document.getElementById('form-titulo');
 
 // ================= INICIALIZACIÓN DE LA APP =================
 document.addEventListener('DOMContentLoaded', () => {
-    crearBotonCambioRolVisual(); // Crea el botón visible en la pantalla
-    comprobarRol(); // Configura la vista inicial protegido como visitante
+    crearBotonCambioRolVisual();
+    comprobarRol();
 });
 
 // ================= CREACIÓN DEL BOTÓN VISIBLE EN LA PÁGINA =================
@@ -38,64 +37,57 @@ function crearBotonCambioRolVisual() {
     botonRol.style.right = '20px';
     botonRol.style.zIndex = '9999'; 
     botonRol.style.padding = '12px 18px';
-    botonRol.style.background = '#2563eb'; 
+    botonRol.style.background = '#10b981'; // Sincronizado a verde fútbol
     botonRol.style.color = '#fff';
-    botonRol.style.border = '3px solid #222';
+    botonRol.style.border = '3px solid #111116';
     botonRol.style.borderRadius = '12px';
-    botonRol.style.boxShadow = '4px 4px 0px #222';
+    botonRol.style.boxShadow = '4px 4px 0px #111116';
     botonRol.style.cursor = 'pointer';
     botonRol.style.fontWeight = 'bold';
+    botonRol.style.fontFamily = "'Anton', sans-serif";
     
     botonRol.addEventListener('click', manejarIntentoCambioRol);
     document.body.appendChild(botonRol);
 }
 
-// ================= VALIDACIÓN Y CREACIÓN DE CONTRASEÑA =================
+// ================= VALIDACIÓN DE CONTRASEÑA =================
 function manejarIntentoCambioRol() {
     let contrasenaGuardada = localStorage.getItem('contrasena_vip');
 
-    // CASO 1: Configurar contraseña por primera vez
     if (!contrasenaGuardada) {
-        const nuevaClave = prompt("🆕 ¡CONFIGURACIÓN INICIAL DEL SISTEMA!\nNo hay ninguna contraseña registrada todavía.\n\nPor favor, inventa e ingresa tu NUEVA contraseña VIP:");
-        
+        const nuevaClave = prompt("🆕 CONFIGURACIÓN INICIAL\nPor favor, ingresa tu NUEVA contraseña VIP:");
         if (nuevaClave && nuevaClave.trim() !== "") {
             localStorage.setItem('contrasena_vip', nuevaClave.trim());
-            alert("✅ ¡Contraseña guardada con éxito!\nAhora esta será la clave requerida para ingresar siempre.");
+            alert("✅ ¡Contraseña guardada con éxito!");
             esAdmin = true;
             document.getElementById('btn-cambiar-rol').style.background = '#ef4444'; 
             comprobarRol();
         } else {
-            alert("❌ Debes ingresar una contraseña válida para activar los permisos.");
+            alert("❌ Contraseña no válida.");
         }
         return;
     }
 
-    // CASO 2: Salir de Modo VIP
     if (esAdmin) {
         esAdmin = false;
         alert("👁️ Cambiaste a modo: PARTICIPANTE (Solo lectura)");
-        document.getElementById('btn-cambiar-rol').style.background = '#2563eb'; 
+        document.getElementById('btn-cambiar-rol').style.background = '#10b981'; 
         comprobarRol();
-    } 
-    // CASO 3: Loguearse como VIP
-    else {
-        const claveIngresada = prompt("🔐 ACCESO VIP\nIngresa la contraseña de administrador para habilitar los cambios:");
-        
+    } else {
+        const claveIngresada = prompt("🔐 ACCESO VIP\nIngresa la contraseña de administrador:");
         if (claveIngresada === contrasenaGuardada) {
             esAdmin = true;
-            alert("⚠️ Cambiaste a modo: VIP (Permisos de edición activados)");
+            alert("⚠️ Modo VIP Activado");
             document.getElementById('btn-cambiar-rol').style.background = '#ef4444'; 
             comprobarRol();
         } else if (claveIngresada !== null) {
-            alert("❌ Contraseña incorrecta. Acceso denegado.");
+            alert("❌ Contraseña incorrecta.");
         }
     }
 }
 
-// ================= CONTROL DE INTERFAZ (ADMIN vs VISITANTE) =================
 function comprobarRol() {
     const columnaAccionesHeader = document.querySelector('.tabla-comic th:nth-child(6)');
-
     if (esAdmin) {
         if (sectionFormulario) sectionFormulario.classList.remove('oculto');
         if (columnaAccionesHeader) columnaAccionesHeader.style.display = '';
@@ -103,7 +95,6 @@ function comprobarRol() {
         if (sectionFormulario) sectionFormulario.classList.add('oculto');
         if (columnaAccionesHeader) columnaAccionesHeader.style.display = 'none';
     }
-    
     renderizarPartidos();
 }
 
@@ -119,47 +110,42 @@ function renderizarPartidos() {
     
     partidos.forEach(partido => {
         const fila = document.createElement('tr');
-        
         const estadoActual = partido.estado ? partido.estado.toUpperCase() : 'PRÓXIMAMENTE';
+        
         let colorEstado = '#64748b'; 
         if (estadoActual === 'EN VIVO') colorEstado = '#ef4444'; 
         if (estadoActual === 'PRÓXIMAMENTE') colorEstado = '#10b981'; 
 
         if (!partido.jugadores) partido.jugadores = [];
 
-        // --- CONSTRUCCIÓN DINÁMICA DE LA LISTA DE JUGADORES ---
         let htmlJugadores = '';
         if (partido.jugadores.length === 0) {
             htmlJugadores = '<i>Nadie anotado</i>';
         } else {
-            // Recorremos los jugadores uno a uno para darles formato
             partido.jugadores.forEach((jugador, indice) => {
-                htmlJugadores += `<span style="display: inline-block; background: #f1f5f9; padding: 2px 6px; margin: 2px; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 13px;">${jugador}`;
-                
-                // ❌ SI ES VIP, LE INYECTAMOS EL BOTÓN DE ELIMINAR A CADA PERSONA
+                htmlJugadores += `<span style="display: inline-block; background: #ffffff; padding: 4px 8px; margin: 3px; border-radius: 6px; border: 2px solid #111116; font-size: 13px; color: #111116; font-weight: bold; box-shadow: 2px 2px 0px #111116;">${jugador}`;
                 if (esAdmin) {
-                    htmlJugadores += ` <strong style="color: #ef4444; cursor: pointer; margin-left: 5px; font-size: 11px;" onclick="eliminarPersona(${partido.id}, ${indice})" title="Expulsar de la lista">❌</strong>`;
+                    htmlJugadores += ` <strong style="color: #ef4444; cursor: pointer; margin-left: 6px; font-size: 12px;" onclick="eliminarPersona(${partido.id}, ${indice})">❌</strong>`;
                 }
-                
-                htmlJugadores += `</span>${indice < partido.jugadores.length - 1 ? ', ' : ''}`;
+                htmlJugadores += `</span> `;
             });
         }
 
         let htmlContenido = `
             <td>📅 ${partido.fecha}</td>
             <td>⏰ ${partido.hora}</td>
-            <td><span style="color: #2563eb; display: block; margin-bottom: 4px;">⚽ ${partido.encuentro}</span></td>
+            <td><strong style="color: #111116; display: block; font-size: 16px;">⚽ ${partido.encuentro}</strong></td>
             <td>
-                <span style="display:block; font-size:12px; color:#666; margin-bottom: 5px;">${partido.fase.toUpperCase()}</span>
-                <span style="background:${colorEstado}; color:white; padding:4px 10px; border-radius:6px; font-size:11px; border: 2px solid #222; font-weight: 900; display: inline-block;">
+                <span style="display:block; font-size:12px; color:#555; margin-bottom: 5px;">${partido.fase.toUpperCase()}</span>
+                <span style="background:${colorEstado}; color:white; padding:4px 10px; border-radius:6px; font-size:11px; border: 2px solid #111116; font-weight: 900; display: inline-block;">
                     ${estadoActual}
                 </span>
             </td>
             <td>
                 <div style="margin-bottom: 8px; font-size: 14px; max-width: 220px; word-wrap: break-word; line-height: 1.5;">
-                    🏃‍♂️ <strong>${partido.jugadores.length} Inscritos:</strong><br> ${htmlJugadores}
+                    🏃‍♂️ <strong style="color: #111116;">${partido.jugadores.length} Inscritos:</strong><br> ${htmlJugadores}
                 </div>
-                <button class="btn-act-edit" style="background: #fef08a; color: #854d0e; border-color: #222;" onclick="anotarPersona(${partido.id})">
+                <button class="btn-act-edit" style="background: #fef08a; color: #111116; border: 2px solid #111116; box-shadow: 2px 2px 0px #111116; font-weight: 900;" onclick="anotarPersona(${partido.id})">
                     📝 Anotarse
                 </button>
             </td>
@@ -181,24 +167,17 @@ function renderizarPartidos() {
     localStorage.setItem('partidos', JSON.stringify(partidos));
 }
 
-// ================= FUNCIÓN VIP: EXPULSAR / ELIMINAR PERSONA INDIVIDUALMENTE =================
 function eliminarPersona(partidoId, jugadorIndice) {
-    if (!esAdmin) return; // Solo el jefe puede hacerlo
-
+    if (!esAdmin) return;
     const partido = partidos.find(p => p.id === partidoId);
     if (!partido) return;
 
-    const nombreExpulsado = partido.jugadores[jugadorIndice];
-
-    if (confirm(`¿Estás seguro de que quieres quitar a "${nombreExpulsado}" de la lista de convocados?`)) {
-        // Removemos a la persona usando su posición en la lista (index)
+    if (confirm(`¿Quitar a "${partido.jugadores[jugadorIndice]}" de los convocados?`)) {
         partido.jugadores.splice(jugadorIndice, 1); 
-        
-        renderizarPartidos(); // Volvemos a dibujar la tabla actualizada
+        renderizarPartidos(); 
     }
 }
 
-// ================= FUNCIÓN PÚBLICA: ANOTAR PERSONA =================
 function anotarPersona(id) {
     const partido = partidos.find(p => p.id === id);
     if (!partido) return;
@@ -206,7 +185,7 @@ function anotarPersona(id) {
     const nombrePersona = prompt(`📋 ¿Cuál es tu nombre para anotarte?`);
     if (nombrePersona && nombrePersona.trim() !== "") {
         if(partido.jugadores.map(n => n.toLowerCase()).includes(nombrePersona.trim().toLowerCase())) {
-            alert("⚠️ Este nombre ya está inscrito en la lista.");
+            alert("⚠️ Este nombre ya está inscrito.");
             return;
         }
         partido.jugadores.push(nombrePersona.trim());
@@ -214,11 +193,9 @@ function anotarPersona(id) {
     }
 }
 
-// ================= GESTIÓN DEL FORMULARIO (SUBMIT) =================
 if (formulario) {
     formulario.addEventListener('submit', (e) => {
         e.preventDefault();
-
         if (!esAdmin) return;
 
         const id = inputId.value;
@@ -247,7 +224,6 @@ if (formulario) {
     });
 }
 
-// ================= ACCIONES DE EDICIÓN Y ELIMINACIÓN =================
 function eliminarPartido(id) {
     if (!esAdmin) return;
     if (confirm('¿Quieres borrar este encuentro?')) {
@@ -258,7 +234,6 @@ function eliminarPartido(id) {
 
 function cargarEditar(id) {
     if (!esAdmin) return;
-
     const partido = partidos.find(p => p.id === id);
     if (partido) {
         inputId.value = partido.id;
@@ -280,5 +255,4 @@ function limpiarFormulario() {
     if (btnCancelar) btnCancelar.classList.add('oculto');
 }
 
-// Carga inicial
 renderizarPartidos();

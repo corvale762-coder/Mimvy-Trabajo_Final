@@ -1,17 +1,31 @@
-/* ================= ESTILO DEPORTIVO URBANO (FÚTBOL) ================= */
+/* ================= ESTILO DEPORTIVO URBANO (FÚTBOL RE-DISEÑADO) ================= */
+:root {
+    --verde-principal: #10b981;  /* Verde césped vibrante */
+    --verde-hover: #059669;      /* Verde oscuro para hovers */
+    --verde-neon: #00ff88;       /* Detalles neón luminosos */
+    --negro-solido: #111116;     /* Negro grueso de cómics */
+    --negro-estadio: #1e1e24;    /* Fondo de tarjetas */
+    --blanco-puro: #ffffff;
+    --gris-cancha: #eef7f7;      /* Fondo base claro */
+    --borde-grosor: 4px solid #111116;
+}
+
 body {
-    background: #eef7f7;
-    color: #222;
+    background: var(--gris-cancha);
+    background-image: radial-gradient(rgba(16, 185, 129, 0.12) 2px, transparent 2px);
+    background-size: 30px 30px; /* Textura táctica de puntos */
+    color: var(--negro-solido);
     margin: 0;
     padding-top: 110px; /* Espacio para el header fijo */
     font-family: 'Arial Black', Arial, sans-serif;
 }
 
-/* Header Fijo adaptado */
+/* Header Fijo deportivo */
 .header-futbol {
     width: 100%;
     height: 90px;
-    background: white;
+    background: var(--negro-solido);
+    border-bottom: 4px solid var(--verde-principal);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +34,8 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-sizing: border-box;
 }
 
 .logo-futbol {
@@ -34,33 +49,37 @@ body {
     height: 52px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid var(--verde-neon);
 }
 
 .logo-futbol h2 {
-    color: #222;
+    color: var(--blanco-puro);
     font-size: 28px;
     font-weight: 900;
     text-transform: uppercase;
+    margin: 0;
 }
 
 .logo-futbol h2 span {
-    color: #2563eb;
+    color: var(--verde-principal);
 }
 
 .btn-regresar {
     text-decoration: none;
-    background: #2563eb;
-    color: white;
+    background: transparent;
+    color: var(--blanco-puro);
+    border: 2px solid var(--blanco-puro);
     padding: 12px 25px;
     border-radius: 10px;
     font-weight: bold;
     transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
 }
 
 .btn-regresar:hover {
     transform: scale(1.05);
-    background: #1d4ed8;
+    background: var(--blanco-puro);
+    color: var(--negro-solido);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 /* Contenedor e Impacto del Título */
@@ -78,7 +97,7 @@ body {
 .gestion {
     font-family: 'Bangers', cursive;
     font-size: 70px;
-    color: #222;
+    color: var(--negro-solido);
     letter-spacing: 3px;
     display: inline-block;
 }
@@ -86,31 +105,32 @@ body {
 .partidos-tit {
     font-family: 'Bangers', cursive;
     font-size: 90px;
-    color: #2563eb;
+    color: var(--verde-principal);
     letter-spacing: 5px;
     display: inline-block;
     transform: rotate(-1.5deg);
-    text-shadow: 0 5px 0px #0f172a;
+    text-shadow: 4px 5px 0px var(--negro-solido);
 }
 
-/* Paneles de Control Estilo Cómic */
+/* Paneles de Control Estilo Cómic Oscuro */
+
 .tarjeta-panel {
-    background: white;
-    border: 4px solid #222;
+    background: var(--negro-estadio);
+    border: var(--borde-grosor);
     border-radius: 25px;
     padding: 35px;
     margin-bottom: 40px;
-    box-shadow: 8px 8px 0px #222;
+    box-shadow: 8px 8px 0px var(--negro-solido);
 }
 
 .tarjeta-panel h3 {
     font-family: 'Anton', sans-serif;
     font-size: 32px;
-    color: #222;
+    color: var(--blanco-puro);
     letter-spacing: 1px;
     margin-top: 0;
     margin-bottom: 25px;
-    border-bottom: 4px dashed #2563eb;
+    border-bottom: 4px dashed var(--verde-principal);
     padding-bottom: 10px;
 }
 
@@ -131,24 +151,25 @@ body {
     font-size: 14px;
     font-weight: 900;
     margin-bottom: 8px;
-    color: #0f172a;
+    color: var(--verde-principal);
 }
 
 .campo-bloque input {
     padding: 14px;
-    border: 3px solid #222;
+    border: var(--borde-grosor);
     border-radius: 12px;
     outline: none;
     font-size: 15px;
     font-weight: bold;
-    background: #f8fafc;
+    background: var(--negro-solido);
+    color: var(--blanco-puro);
     transition: 0.2s;
 }
 
 .campo-bloque input:focus {
-    background: #fff;
-    border-color: #2563eb;
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+    background: #25252c;
+    border-color: var(--verde-neon);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
 }
 
 .bloque-acciones {
@@ -159,36 +180,36 @@ body {
 /* Botones con Relieve Cómic */
 .btn-comic-primario, .btn-comic-secundario {
     padding: 14px 20px;
-    border: 3px solid #222;
+    border: var(--borde-grosor);
     border-radius: 12px;
     cursor: pointer;
     font-weight: 900;
     font-size: 15px;
     transition: 0.2s;
     height: 52px;
-    box-shadow: 3px 3px 0px #222;
+    box-shadow: 4px 4px 0px var(--negro-solido);
 }
 
 .btn-comic-primario {
-    background: #2563eb;
-    color: white;
+    background: var(--verde-principal);
+    color: var(--blanco-puro);
 }
 
 .btn-comic-primario:hover {
-    background: #1d4ed8;
+    background: var(--verde-hover);
     transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0px #222;
+    box-shadow: 6px 6px 0px var(--negro-solido);
 }
 
 .btn-comic-secundario {
-    background: #e2e8f0;
-    color: #222;
+    background: #334155;
+    color: var(--blanco-puro);
 }
 
 .btn-comic-secundario:hover {
-    background: #cbd5e1;
+    background: #475569;
     transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0px #222;
+    box-shadow: 6px 6px 0px var(--negro-solido);
 }
 
 /* Tablas Deportivas Dinámicas */
@@ -199,16 +220,16 @@ body {
 .tabla-comic {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 10px; /* Separación entre filas */
+    border-spacing: 0 10px;
 }
 
 .tabla-comic th {
-    background: #0f172a;
-    color: white;
+    background: var(--negro-solido);
+    color: var(--blanco-puro);
     padding: 16px;
     font-size: 16px;
     letter-spacing: 1px;
-    border: 3px solid #222;
+    border: var(--borde-grosor);
 }
 
 .tabla-comic th:first-child { border-radius: 12px 0 0 12px; }
@@ -218,29 +239,29 @@ body {
     background: #fff;
     padding: 18px;
     font-weight: bold;
-    border-top: 3px solid #222;
-    border-bottom: 3px solid #222;
-    color: #222;
+    border-top: var(--borde-grosor);
+    border-bottom: var(--borde-grosor);
+    color: var(--negro-solido);
 }
 
 .tabla-comic td:first-child {
-    border-left: 3px solid #222;
+    border-left: var(--borde-grosor);
     border-radius: 12px 0 0 12px;
 }
 
 .tabla-comic td:last-child {
-    border-right: 3px solid #222;
+    border-right: var(--borde-grosor);
     border-radius: 0 12px 12px 0;
 }
 
 .tabla-comic tr:hover td {
-    background: #f1f5f9;
+    background: #e8f7f1; /* Hover sutil en verde claro */
 }
 
 /* Botones de acción rápidos */
 .btn-act-edit, .btn-act-del {
     padding: 8px 14px;
-    border: 2px solid #222;
+    border: 2px solid var(--negro-solido);
     border-radius: 8px;
     cursor: pointer;
     font-weight: 900;
@@ -250,12 +271,12 @@ body {
 }
 
 .btn-act-edit {
-    background: #dbeafe;
-    color: #1e40af;
+    background: #d1fae5;
+    color: #065f46;
 }
 
 .btn-act-edit:hover {
-    background: #2563eb;
+    background: var(--verde-principal);
     color: white;
 }
 
@@ -271,17 +292,20 @@ body {
 
 .oculto { display: none !important; }
 
-/* Footer con Ondas Acopladas */
+/* Footer Urbano Oscuro con Ondas */
+/* Footer Urbano Oscuro con Césped Dinámico */
 .footer-futbol {
     position: relative;
     width: 100%;
-    background: rgb(49, 129, 249);
+    background: var(--negro-solido);
     min-height: 120px;
-    padding: 40px 20px 20px;
+    padding: 50px 20px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 140px;
+    border-top: 4px solid var(--verde-principal);
+    box-sizing: border-box;
 }
 
 .footer-futbol p {
@@ -289,35 +313,263 @@ body {
     font-weight: bold;
     letter-spacing: 1px;
     z-index: 10;
+    margin: 0;
+    font-family: 'Anton', sans-serif;
 }
 
-/* Copiado exacto de tus animaciones de ondas */
+/* Capas de pasto dinámico */
 .footer-futbol .onda {
     position: absolute;
-    top: -100px;
+    top: -45px; /* Ajustado para que sobresalga el pasto */
     left: 0;
     width: 100%;
-    height: 100px;
-    background: url(/Imagenes/wave.png);
-    background-size: 1000px 100px;
+    height: 50px;
+    /* Un patrón SVG integrado directamente: siluetas de hojas de césped */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,120 L0,60 L20,90 L40,40 L60,80 L80,50 L100,95 L120,30 L140,75 L160,55 L180,90 L200,45 L220,80 L240,35 L260,70 L280,50 L300,85 L320,40 L340,75 L360,55 L380,90 L400,45 L420,85 L440,30 L460,70 L480,50 L500,90 L520,40 L540,75 L560,55 L580,85 L600,45 L620,80 L640,35 L660,70 L680,50 L700,90 L720,40 L740,75 L760,55 L780,85 L800,45 L820,80 L840,35 L860,70 L880,50 L900,85 L920,40 L940,75 L960,55 L980,90 L1000,45 L1020,80 L1040,35 L1060,70 L1080,50 L1100,90 L1120,40 L1140,75 L1160,55 L1180,85 L1200,30 L1200,120 Z' fill='%2310b981'/%3E%3C/svg%3E");
+    background-size: 600px 50px;
 }
 
-.footer-futbol .onda#onda1 { z-index: 1000; opacity: 1; bottom: 0; animation: animateWave 4s linear infinite; }
-.footer-futbol .onda#onda2 { z-index: 999; opacity: 0.5; bottom: 10px; animation: animateWave_02 4s linear infinite; }
-.footer-futbol .onda#onda3 { z-index: 1000; opacity: 0.2; bottom: 15px; animation: animateWave 3s linear infinite; }
-.footer-futbol .onda#onda4 { z-index: 999; opacity: 0.7; bottom: 20px; animation: animateWave_02 3s linear infinite; }
+/* Diferentes tonos de verde para simular profundidad */
+.footer-futbol .onda#onda1 { z-index: 1000; opacity: 1; top: -45px; animation: animateWave 12s linear infinite; }
+.footer-futbol .onda#onda2 { z-index: 999; opacity: 0.6; top: -50px; filter: brightness(0.8); animation: animateWave_02 8s linear infinite; }
+.footer-futbol .onda#onda3 { z-index: 998; opacity: 0.4; top: -55px; filter: brightness(0.6); animation: animateWave 6s linear infinite; }
+.footer-futbol .onda#onda4 { z-index: 997; opacity: 0.2; top: -58px; filter: brightness(0.4); animation: animateWave_02 4s linear infinite; }
 
-@keyframes animateWave { 0% { background-position-x: 1000px; } 100% { background-position-x: 0px; } }
-@keyframes animateWave_02 { 0% { background-position-x: 0px; } 100% { background-position-x: 1000px; } }
+@keyframes animateWave { 0% { background-position-x: 0px; } 100% { background-position-x: 600px; } }
+@keyframes animateWave_02 { 0% { background-position-x: 600px; } 100% { background-position-x: 0px; } }
 
-/* Efecto de parpadeo para los partidos En Vivo */
-@keyframes parpadeo {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
+/* ================= BALÓN FLOTANTE EN EL CÉSPED (REBOTANDO DE LADO A LADO) ================= */
+.balon-contenedor {
+    position: absolute;
+    top: -65px;      /* Posición inicial sobre el césped */
+    left: 0;         /* Empezará desde la izquierda */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1005;   /* Por encima de las capas del césped */
+    pointer-events: none; 
+    /* Esta animación se encarga de mover el contenedor completo de izquierda a derecha */
+    animation: moverDerechaIzquierda 12s linear infinite;
 }
 
-span[style*="#ef4444"] {
-    animation: parpadeo 1.5s infinite;
-    box-shadow: 2px 2px 0px #222;
+.balon-futbol {
+    font-size: 65px; 
+    line-height: 1;
+    filter: drop-shadow(4px 6px 0px rgba(17, 17, 22, 1)); /* Sombra estilo cómic */
+    /* Esta animación hace que la pelota salte y gire al mismo tiempo */
+    animation: saltarBalon 1.5s ease-in-out infinite;
+}
+
+.balon-sombra {
+    width: 45px;
+    height: 10px;
+    background: rgba(17, 17, 22, 0.4); 
+    border-radius: 50%;
+    margin-top: 12px;
+    filter: blur(2px);
+    /* Esta animación coordina el tamaño de la sombra con los saltos */
+    animation: sombraSalto 1.5s ease-in-out infinite;
+}
+
+/* --- NUEVAS ANIMACIONES DE MOVIMIENTO Y SALTO --- */
+
+/* 1. Desplazamiento horizontal continuo (Ida y vuelta por toda la cancha) */
+@keyframes moverDerechaIzquierda {
+    0%, 100% {
+        left: 5%; /* Empieza cerca del borde izquierdo */
+    }
+    50% {
+        left: 90%; /* Llega hasta el borde derecho */
+    }
+}
+
+/* 2. El efecto de los saltos/botes + rotación de la pelota */
+@keyframes saltarBalon {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg); /* Tocando el césped */
+        animation-timing-function: ease-out;
+    }
+    50% {
+        transform: translateY(-40px) rotate(180deg); /* Punto más alto del salto (gira media vuelta) */
+        animation-timing-function: ease-in;
+    }
+}
+
+/* 3. La sombra se achica cuando salta y se agranda al caer */
+@keyframes sombraSalto {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.5); /* Más pequeña y tenue en el punto más alto */
+        opacity: 0.3;
+    }
+}
+
+/* ================= PORTERÍAS 3D PREMIUM REALES ================= */
+.arco-3d {
+    position: absolute;
+    bottom: 95px;             /* Sentadas exactamente sobre las puntas del césped verde */
+    width: 130px;
+    height: 85px;
+    z-index: 1002;            /* Por detrás del balón que tiene 1005 */
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+/* Base común para simular los tubos blancos metálicos */
+.arco-3d .cara-frontal,
+.arco-3d .cara-lateral {
+    position: absolute;
+    border: 4px solid #ffffff; /* Grosor ideal de postes reales */
+    box-sizing: border-box;
+}
+
+/* --- PATRÓN DE LA RED DE CUADRITOS FINE-MESH --- */
+.arco-3d .cara-red,
+.arco-3d .cara-lateral {
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.4) 1.5px, transparent 1.5px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 1.5px, transparent 1.5px);
+    background-size: 6px 6px; /* Cuadrícula pequeña realista */
+}
+
+/* ================= PORTERÍAS 3D CORREGIDAS (MÁS GRANDES Y EN EL CÉSPED VERDE) ================= */
+.arco-3d {
+    position: absolute;
+    bottom: 105px;            /* ¡Completamente subidas al área verde, lejos de lo negro! */
+    width: 160px;             /* Más anchas (antes 130px) */
+    height: 115px;            /* Más altas (antes 85px) para dar volumen real */
+    z-index: 1002;            /* Por detrás de la pelota (1005) para que entre al arco */
+    transform-style: preserve-3d;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Estilo para los tubos/postes principales de color blanco */
+.arco-3d .cara-frontal,
+.arco-3d .cara-lateral {
+    position: absolute;
+    border: 4.5px solid #ffffff; /* Postes un poco más gruesos para que resalten */
+    box-sizing: border-box;
+}
+
+/* Estilo detallado para la red cuadriculada */
+.arco-3d .cara-red,
+.arco-3d .cara-lateral {
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.45) 1.5px, transparent 1.5px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.45) 1.5px, transparent 1.5px);
+    background-size: 7px 7px; /* Cuadros de la red perfectamente escalados */
+}
+
+/* ================= ARCO IZQUIERDO (PERSPECTIVA CORREGIDA) ================= */
+/* ================= PORTERÍAS 3D CORREGIDAS (MÁS GRANDES, EN EL CÉSPED Y COLOR ROSÁCEO) ================= */
+.arco-3d {
+    position: absolute;
+    bottom: 105px;            /* ¡Completamente subidas al área verde, lejos de lo negro! */
+    width: 160px;             /* Más anchas (antes 130px) */
+    height: 115px;            /* Más altas (antes 85px) para dar volumen real */
+    z-index: 1002;            /* Por detrás de la pelota (1005) para que entre al arco */
+    transform-style: preserve-3d;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Estilo para los tubos/postes principales - CAMBIADO A ROSA NEÓN */
+.arco-3d .cara-frontal,
+.arco-3d .cara-lateral {
+    position: absolute;
+    border: 4.5px solid #ff2a85; /* Rosa neón vibrante que rompe con el verde sin apagarlo */
+    box-sizing: border-box;
+    /* Efecto glow / brillo rosáceo para máxima visibilidad */
+    filter: drop-shadow(0 0 8px #ff2a85);
+}
+
+/* Estilo detallado para la red cuadriculada CON CONTRASTE */
+.arco-3d .cara-red,
+.arco-3d .cara-lateral {
+    /* Malla en color oscuro/negro para que resalte sobre el fondo claro */
+    background-image: 
+        linear-gradient(to right, rgba(17, 17, 22, 0.45) 1.5px, transparent 1.5px),
+        linear-gradient(to bottom, rgba(17, 17, 22, 0.45) 1.5px, transparent 1.5px);
+    background-size: 7px 7px; /* Cuadros de la red perfectamente escalados */
+}
+
+/* ================= ARCO IZQUIERDO (PERSPECTIVA CORREGIDA) ================= */
+.arco-izquierdo {
+    left: 20px;
+    /* Ajustamos el punto de fuga a 600px y suavizamos la rotación para que no se aplaste */
+    transform: perspective(600px) rotateY(20deg);
+}
+
+.arco-izquierdo .cara-frontal {
+    width: 100%;
+    height: 100%;
+    border-bottom: none;
+    border-right: none;
+    background: rgba(255, 42, 133, 0.03); /* Sutil tinte rosado interior */
+}
+
+/* Cara lateral que genera la profundidad hacia el fondo */
+.arco-izquierdo .cara-lateral {
+    width: 70px; /* Más profundidad */
+    height: 100%;
+    right: 0;
+    top: 0;
+    border-bottom: none;
+    border-left: none;
+    transform-origin: right center;
+    transform: rotateY(-75deg) skewY(-3deg);
+    background-color: rgba(0, 0, 0, 0.05); /* Sombra para dar volumen */
+}
+
+/* Red de fondo */
+.arco-izquierdo .cara-red {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Mueve la red exactamente al final de los postes de profundidad */
+    transform: translateZ(-68px) translateX(18px);
+    border-left: 3.5px solid #ff2a85; /* Poste trasero de apoyo rosa */
+    opacity: 0.9;
+}
+
+/* ================= ARCO DERECHO (PERSPECTIVA CORREGIDA) ================= */
+.arco-derecho {
+    right: 20px;
+    transform: perspective(600px) rotateY(-20deg);
+}
+
+.arco-derecho .cara-frontal {
+    width: 100%;
+    height: 100%;
+    border-bottom: none;
+    border-left: none;
+    background: rgba(255, 42, 133, 0.03); /* Sutil tinte rosado interior */
+}
+
+/* Cara lateral que genera la profundidad hacia el fondo */
+.arco-derecho .cara-lateral {
+    width: 70px; /* Más profundidad */
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-bottom: none;
+    border-right: none;
+    transform-origin: left center;
+    transform: rotateY(75deg) skewY(3deg);
+    background-color: rgba(0, 0, 0, 0.05); /* Sombra para dar volumen */
+}
+
+/* Red de fondo */
+.arco-derecho .cara-red {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Mueve la red exactamente al final de los postes de profundidad */
+    transform: translateZ(-68px) translateX(-18px);
+    border-right: 3.5px solid #ff2a85; /* Poste trasero de apoyo rosa */
+    opacity: 0.9;
 }
