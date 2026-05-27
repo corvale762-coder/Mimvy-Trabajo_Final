@@ -82,20 +82,24 @@ body{
 }
 
 /* ================= HERO ================= */
-.hero{
+/* ================= HERO ================= */
+/* ================= HERO ================= */
+.hero {
     width: 100%;
     height: 100vh;
-
-    background:
+    isolation: isolate;
+    background: 
     linear-gradient(
-        rgba(5, 15, 35, 0.85),
-        rgba(5, 15, 35, 0.90)
+        rgba(5, 15, 35, 0.7), 
+        rgba(5, 15, 35, 0.75)
     ),
-    url("imagenes/imagen1.webp");
+    /* Quitamos la palabra "imagenes/" porque la imagen está afuera */
+    url("Gemini_Generated_Image_4t79f64t79f64t79.png"); 
 
     background-size: cover;
     background-position: center;
-
+    background-repeat: no-repeat;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,6 +109,7 @@ body{
     position: relative;
     overflow: hidden;
 }
+
 
 .hero::before{
     content: "";
@@ -119,46 +124,93 @@ body{
     left: -100px;
 }
 
+
 .hero-contenido{
     max-width: 1100px;
     z-index: 2;
 }
-
+ 
 .hero h1{
-    font-size: 100px;
-    font-weight: 900;
-    text-transform: uppercase;
+    font-family: 'Anton', sans-serif;
+    font-size: 140px;
     line-height: 0.9;
-    letter-spacing: -4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     margin-bottom: 20px;
 
+    color: white;
+
     text-shadow:
-    0 0 10px rgba(37,99,235,0.5),
-    0 10px 30px rgba(0,0,0,0.6);
+    0 5px 15px rgba(0,0,0,0.6),
+    0 0 30px rgba(37,99,235,0.4);
+
+    animation: aparecer 1s ease;
+}
+.vive{
+    display: block;
+
+    font-family: 'Bangers', cursive;
+
+    font-size: 170px;
+
+    color: white;
+
+    letter-spacing: 8px;
+
+    transform: rotate(-3deg);
+
+    text-shadow:
+    0 5px 15px rgba(0,0,0,0.6);
+
+    position: relative;
+    top: 90px;
+}
+.deporte{
+    display: block;
+
+    font-family: 'Bangers', cursive;
+
+    font-size: 150px;
+
+    color: #2563eb;
+
+    letter-spacing: 6px;
+
+    transform: rotate(-2deg);
+
+    text-shadow:
+    0 5px 15px rgba(0,0,0,0.7),
+    0 0 30px rgba(37,99,235,0.5);
+}
+.vive,
+.deporte{
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
 }
 
 .hero p{
-    font-size: 26px;
-    max-width: 800px;
-    margin: 0 auto 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 35px;
+    letter-spacing: 6px;
+    color: white;
+    margin-bottom: 40px;
+    
 }
 
 .btn-explorar{
     text-decoration: none;
-    background: #2563eb;
+    background: linear-gradient(90deg,#2563eb,#1d4ed8);
     color: white;
-    padding: 18px 40px;
-    border-radius: 50px;
+    padding: 20px 50px;
+    border-radius: 20px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
     transition: 0.3s;
-    border: 2px solid transparent;
+    box-shadow: 0 0 25px rgba(37,99,235,0.6);
 }
 
 .btn-explorar:hover{
-    background: transparent;
-    border: 2px solid #2563eb;
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0 0 40px rgba(37,99,235,0.9);
 }
 
 /* ================= ACORDEÓN ================= */
@@ -241,20 +293,23 @@ body{
 }
 
 /* ================= INFORMACIÓN ================= */
+
 .informacion{
-    width: 100vw;
-    padding: 120px 20px;
+    width: 100%; 
+    padding: 140px 20px; /* Aumentamos ligeramente el espacio vertical */
     text-align: center;
     border-top: 10px solid #2563eb;
+    position: relative;
 
+    /* Cambiamos el fondo a un degradado oscuro suave para que las letras blancas resalten */
     background:
     linear-gradient(
-        rgba(255,255,255,0.88),
-        rgba(255,255,255,0.88)
+        rgba(0, 0, 0, 0.55), /* Capa oscura arriba */
+        rgba(0, 0, 0, 0.45)  /* Capa oscura abajo */
     ),
     url("WhatsApp Image 2026-05-07 at 3.38.26 PM.jpeg");
 
-    background-size: 60%;
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -262,15 +317,21 @@ body{
 .informacion h2{
     font-size: 60px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    color: #ffffff; /* ¡Texto en blanco para máximo contraste! */
+    letter-spacing: 2px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Sombra proyectada para dar profundidad */
 }
 
 .informacion p{
-    font-size: 22px;
+    font-size: 24px; /* Un pelín más grande */
     max-width: 900px;
     margin: auto;
+    font-weight: bold; 
+    color: #ffffff; /* Texto en blanco */
+    letter-spacing: 1px;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
 }
-
 /* IMAGEN DEPORTIVA */
 .img-deportes{
     width: 380px;
@@ -400,4 +461,40 @@ footer .onda#onda4{
   {
     background-position-x: 1000px;
   }
+}
+@keyframes aparecer{
+
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+@media(max-width:900px){
+
+    .vive{
+        font-size: 100px;
+    }
+
+    .deporte{
+        font-size: 90px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .vive{
+        font-size: 65px;
+    }
+
+    .deporte{
+        font-size: 60px;
+    }
+
 }
