@@ -1,63 +1,124 @@
+// ==========================
+// ELEMENTOS
+// ==========================
 const monster = document.getElementById("monster");
 const inputUsuario = document.getElementById("input-usuario");
 const inputClave = document.getElementById("input-clave");
-const body = document.querySelector("body");
-const altoMitad = window.innerHeight / 2;
-const anchoMitad = window.innerWidth / 2;
+const body = document.body;
+
+// ==========================
+// VARIABLES
+// ==========================
 let seguirPunteroMouse = true;
 
+let altoMitad = window.innerHeight / 2;
+let anchoMitad = window.innerWidth / 2;
+
+let animacionActual;
+
+// ==========================
+// ACTUALIZAR CENTRO
+// ==========================
+window.addEventListener("resize", () => {
+  altoMitad = window.innerHeight / 2;
+  anchoMitad = window.innerWidth / 2;
+});
+
+// ==========================
+// SEGUIR MOUSE
+// ==========================
 body.addEventListener("mousemove", (m) => {
-  if (seguirPunteroMouse) {
-    if (m.clientX < anchoMitad && m.clientY < altoMitad) {
-      monster.src = "imagenes-login/inactivo/2.png";
-    } else if (m.clientX < anchoMitad && m.clientY > altoMitad) {
-      monster.src = "imagenes-login/inactivo/3.png";
-    } else if (m.clientX > anchoMitad && m.clientY < altoMitad) {
-      monster.src = "imagenes-login/inactivo/5.png";
-    } else {
-      monster.src = "imagenes-login/inactivo/4.png";
-    }
+  if (!seguirPunteroMouse) return;
+
+  if (m.clientX < anchoMitad && m.clientY < altoMitad) {
+    monster.src = "imagenes-login/inactivo/2.png";
+  } else if (m.clientX < anchoMitad && m.clientY > altoMitad) {
+    monster.src = "imagenes-login/inactivo/3.png";
+  } else if (m.clientX > anchoMitad && m.clientY < altoMitad) {
+    monster.src = "imagenes-login/inactivo/5.png";
+  } else {
+    monster.src = "imagenes-login/inactivo/4.png";
   }
 });
+
+// ==========================
+// INPUT USUARIO
+// ==========================
 inputUsuario.addEventListener("focus", () => {
   seguirPunteroMouse = false;
 });
+
 inputUsuario.addEventListener("blur", () => {
   seguirPunteroMouse = true;
 });
-inputUsuario.addEventListener("keyup", () => {
-  let usuario = inputUsuario.value.length;
-  if (usuario >= 0 && usuario <= 5) {
-    monster.src = "imagenes-login/leer/1.png";
-  } else if (usuario >= 6 && usuario <= 14) {
-    monster.src = "imagenes-login/leer/2.png";
-  } else if (usuario >= 15 && usuario <= 20) {
-    monster.src = "imagenes-login/leer/3.png";
-  } else {
-    monster.src = "imagenes-login/leer/4.png";
-  }
-});
+
+// ==========================
+// INPUT CONTRASEÑA
+// ==========================
 inputClave.addEventListener("focus", () => {
   seguirPunteroMouse = false;
+
+  monster.classList.add("subir-buho");
+
+  clearInterval(animacionActual);
+
   let cont = 1;
-  const cubrirOjo = setInterval(() => {
-    monster.src = "imagenes-login/cubrir/" + cont + ".png";
-    if (cont < 8) {
+
+  animacionActual = setInterval(() => {
+    monster.src = `imagenes-login/cubrir/${cont}.png`;
+
+    if (cont < 4) {
       cont++;
     } else {
-      clearInterval(cubrirOjo);
+      clearInterval(animacionActual);
     }
-  }, 60);
+  }, 100);
 });
+
 inputClave.addEventListener("blur", () => {
   seguirPunteroMouse = true;
-  let cont = 7;
-  const descubrirOjo = setInterval(() => {
-    monster.src = "imagenes-login/cubrir/" + cont + ".png";
+
+  monster.classList.remove("subir-buho");
+
+  clearInterval(animacionActual);
+
+  let cont = 3;
+
+  animacionActual = setInterval(() => {
+    monster.src = `imagenes-login/cubrir/${cont}.png`;
+
     if (cont > 1) {
       cont--;
     } else {
-      clearInterval(descubrirOjo);
+      clearInterval(animacionActual);
     }
-  }, 60);
+  }, 100);
 });
+
+// ==========================
+// TOGGLE CONTRASEÑA
+// ==========================
+function toggleClave(inputId, btnId) {
+  const input = document.getElementById(inputId);
+  const btn = document.getElementById(btnId);
+
+  if (input.type === "password") {
+    input.type = "text";
+    btn.textContent = "🙈";
+    btn.setAttribute("aria-label", "Ocultar contraseña");
+  } else {
+    input.type = "password";
+    btn.textContent = "👁️";
+    btn.setAttribute("aria-label", "Mostrar contraseña");
+  }
+}
+
+document
+  .getElementById("btn-ojo-clave")
+  .addEventListener("click", () => toggleClave("input-clave", "btn-ojo-clave"));
+
+document
+  .getElementById("btn-ojo-confirmar")
+  .addEventListener("click", () =>
+    toggleClave("input-confirmar-clave", "btn-ojo-confirmar"),
+  );

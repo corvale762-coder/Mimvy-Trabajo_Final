@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
 
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="registro.css">
+    <link rel="icon" href="/Imagenes/buhos.ico">
 </head>
 
 <body>
@@ -16,8 +17,16 @@
 
         <form class="formulario" action="registro.php" method="POST">
 
-            <label>Usuario</label>
+            <label>Nombre completo</label>
+            <input 
+                type="text"
+                id="input-nombre"
+                name="nombre"
+                placeholder="Laura Cardona"
+                autocomplete="off"
+            >
 
+            <label>Usuario</label>
             <input 
                 type="text"
                 id="input-usuario"
@@ -26,14 +35,40 @@
                 autocomplete="off"
             >
 
-            <label>Contraseña</label>
-
+            <label>Numero de telefono</label>
             <input 
-                type="password"
-                id="input-clave"
-                name="contrasena"
-                placeholder="*******"
+                type="text"
+                id="input-telefono"
+                name="telefono"
+                placeholder="+57 300 1234567"
+                autocomplete="off"
             >
+
+            <label>Contraseña</label>
+            <div class="campo-clave">
+                <input 
+                    type="password"
+                    id="input-clave"
+                    name="contrasena"
+                    placeholder="*******"
+                >
+                <button type="button" class="btn-ojo" id="btn-ojo-clave" aria-label="Mostrar contraseña">
+                    👁️
+                </button>
+            </div>
+
+            <label>Confirmar contraseña</label>
+            <div class="campo-clave">
+                <input 
+                    type="password"
+                    id="input-confirmar-clave"
+                    name="confirmar_contrasena"
+                    placeholder="*******"
+                >
+                <button type="button" class="btn-ojo" id="btn-ojo-confirmar" aria-label="Mostrar contraseña">
+                    👁️
+                </button>
+            </div>
 
             <button type="submit">Registrarse</button>
 

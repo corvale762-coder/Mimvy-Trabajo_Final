@@ -573,3 +573,68 @@ body {
     border-right: 3.5px solid #ff2a85; /* Poste trasero de apoyo rosa */
     opacity: 0.9;
 }
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 100px;
+    }
+
+    .header-futbol {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .logo-futbol {
+        justify-content: center;
+    }
+
+    .btn-regresar {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .gestion {
+        font-size: 38px;
+    }
+
+    .partidos-tit {
+        font-size: 50px;
+    }
+
+    .tarjeta-panel h3 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    #form-partido {
+        grid-template-columns: 1fr;
+    }
+
+    .bloque-acciones {
+        flex-direction: column;
+    }
+
+    .btn-comic-primario,
+    .btn-comic-secundario {
+        width: 100%;
+    }
+
+    .tabla-comic th,
+    .tabla-comic td {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    /* Ocultar o reducir elementos decorativos pesados */
+    .arco-3d {
+        display: none;
+    }
+
+    .balon-contenedor {
+        transform: scale(0.7);
+        top: -40px;
+    }
+}

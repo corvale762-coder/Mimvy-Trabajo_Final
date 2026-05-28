@@ -2,203 +2,407 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>MIMVY</title>
 
     <link rel="stylesheet" href="styles.css">
 
-
     <!-- Fuente -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Imagenes/buhos.ico">
+
 </head>
-
-<body> 
-
-    <header>
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <img src="/Imagenes/buho.jpg" alt="Buho" width="50" loading="lazy"> 
-            <h1>MIMVY</h1>
-        </div>
-        
-        <nav class="menu">
-            <a class="btn1" href="../inicio/login.html">Inicio</a>
-            <a class="btn1" href="/Deportes/deportes.html">Deportes</a>
-            <a class="btn1" href="">Horarios</a>
-            <a class="btn1" href="">Información</a>
-            <a class="btn1" href="/login/login.html">Inicio sesión</a>
-        </nav>
-    </header>
-
-
 
 <body>
 
+    <!-- HEADER -->
     <header>
 
         <img src="/imagenes-1/menu.png" alt="Menu" width="40" class="menu-icon">
 
-        <img src="/imagenes/buhos.ico" alt="Buho" width="70">
+        <img src="/Imagenes/buho.jpg" alt="Buho" class="logo">
 
-        <a href="/login/login.html" class="login-btn">Iniciar sesión</a>
+        <a href="/login/login.html" class="login-btn">
+            Iniciar sesión
+        </a>
 
     </header>
 
+
+    <!-- MENÚ LATERAL -->
     <nav class="menu">
 
-    <div class="menu-header">
-        <img src="/imagenes/buhos.ico" class="menu-logo">
-        <h2>MIMVY</h2>
-    </div>
+        <!-- Encabezado del menú lateral -->
+        <div class="menu-header">
 
-    <a href="/inicio/index.html">Inicio</a>
+            <img src="/Imagenes/buhos.ico" class="menu-logo" alt="Logo">
 
-    <div class="accordion">
-        <button class="accordion-btn">
-             Deportes
-            <span class="arrow">▼</span>
-        </button>
+            <h2>MIMVY</h2>
 
-        <div class="submenu">
-            <a href="#">Fútbol</a>
-            <a href="#">Baloncesto</a>
-            <a href="#">Voleibol</a>
         </div>
-    </div>
 
-    <div class="accordion">
-        <button class="accordion-btn">
-            👥 Equipos
-            <span class="arrow">▼</span>
-        </button>
+        <a href="/inicio/index.html">Inicio</a>
 
-        <div class="submenu">
-            <a href="#">Fútbol</a>
-            <a href="#">Baloncesto</a>
-            <a href="#">Voleibol</a>
+        <div class="accordion">
+
+            <button class="accordion-btn">
+
+                Deportes
+
+                <span class="arrow">▼</span>
+
+            </button>
+
+            <div class="submenu">
+
+                <a href="#">Fútbol</a>
+
+                <a href="#">Baloncesto</a>
+
+                <a href="#">Voleibol</a>
+
+            </div>
+
         </div>
-    </div>
 
-    <div class="accordion">
-        <button class="accordion-btn">
-            📅 Calendario
-            <span class="arrow">▼</span>
-        </button>
 
-        <div class="submenu">
-            <a href="#">Fútbol</a>
-            <a href="#">Baloncesto</a>
-            <a href="#">Voleibol</a>
+        <div class="accordion">
+
+            <button class="accordion-btn">
+
+                👥 Equipos
+
+                <span class="arrow">▼</span>
+
+            </button>
+
+            <div class="submenu">
+
+                <a href="#">Fútbol</a>
+
+                <a href="#">Baloncesto</a>
+
+                <a href="#">Voleibol</a>
+
+            </div>
+
         </div>
-    </div>
 
-    <div class="accordion">
-        <button class="accordion-btn">
-            🏆 Resultados
-            <span class="arrow">▼</span>
-        </button>
 
-        <div class="submenu">
-            <a href="#">Fútbol</a>
-            <a href="#">Baloncesto</a>
-            <a href="#">Voleibol</a>
+        <div class="accordion">
+
+            <button class="accordion-btn">
+
+                📅 Calendario
+
+                <span class="arrow">▼</span>
+
+            </button>
+
+            <div class="submenu">
+
+                <a href="#">Fútbol</a>
+
+                <a href="#">Baloncesto</a>
+
+                <a href="#">Voleibol</a>
+
+            </div>
+
         </div>
-    </div>
 
-    <div class="accordion">
-        <button class="accordion-btn">
-            📊 Clasificación
-            <span class="arrow">▼</span>
-        </button>
 
-        <div class="submenu">
-            <a href="#">Fútbol</a>
-            <a href="#">Baloncesto</a>
-            <a href="#">Voleibol</a>
+        <div class="accordion">
+
+            <button class="accordion-btn">
+
+                🏆 Resultados
+
+                <span class="arrow">▼</span>
+
+            </button>
+
+            <div class="submenu">
+
+                <a href="#">Fútbol</a>
+
+                <a href="#">Baloncesto</a>
+
+                <a href="#">Voleibol</a>
+
+            </div>
+
         </div>
-    </div>
 
-    <div class="accordion">
-        <button class="accordion-btn">
-            ℹ Información
-            <span class="arrow">▼</span>
-        </button>
 
-        <div class="submenu">
-            <a href="#">Reglamento</a>
-            <a href="#">Contacto</a>
-            <a href="#">Sobre torneo</a>
+        <div class="accordion">
+
+            <button class="accordion-btn">
+
+                📊 Clasificación
+
+                <span class="arrow">▼</span>
+
+            </button>
+
+            <div class="submenu">
+
+                <a href="#">Fútbol</a>
+
+                <a href="#">Baloncesto</a>
+
+                <a href="#">Voleibol</a>
+
+            </div>
+
         </div>
-    </div>
 
-</nav>
 
-<div class="overlay"></div>
-    <!-- CARRUSEL COMO FONDO DE SECCIÓN -->
+        <div class="accordion">
+
+            <button class="accordion-btn">
+
+                ℹ Información
+
+                <span class="arrow">▼</span>
+
+            </button>
+
+            <div class="submenu">
+
+                <a href="#">Reglamento</a>
+
+                <a href="#">Contacto</a>
+
+                <a href="#">Sobre torneo</a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- OVERLAY -->
+    <div class="overlay"></div>
+
+
+    <!-- CARRUSEL -->
     <div class="carrusel">
+
         <!-- Capa de contenido sobre el fondo -->
         <div class="contenido-overlay">
+
             <h1>Bienvenido a MIMVY</h1>
-            <a class="btn1" href="/Deportes/deportes.html" style="background: var(--blue); color: white;">Ver Deportes</a>
+
+            <p class="subtexto">
+
+                Vive la experiencia deportiva como nunca antes.
+                Explora resultados, calendarios y más.
+
+            </p>
+
+            <a class="btn1" href="/Deportes/deportes.html">
+
+                Ver Deportes
+
+            </a>
+
         </div>
 
-        <!-- Imágenes que rotan al fondo -->
+
+        <!-- Imágenes -->
         <ul>
-            <li>
-                <img src="/Imagenes/principal.png" alt="deportes" loading="lazy">
-            </li>
-            <li>
-                <img src="/Imagenes/Imagen-real.png" alt="futbol" loading="lazy">
-            </li>
-            <li>
-                <img src="/Imagenes/baloncesto.jpg" alt="baloncesto" loading="lazy">
-            </li>
-            <li>
-                <img src="/Imagenes/voleyball.jpg" alt="voleyball" loading="lazy">
-            </li>
-        </ul>
-    </div>
-     
-    <main>
-        <section id="inicio" class="inicio">
-            <h2>Explora nuestra plataforma</h2>
-        </section>
-        <section id="informacion" class="informacion">
-            <h2>Acerca de esta página</h2>
-        </section>
-        <section id="deportes" class="deportes">
-            <h2>Los deportes que tenemos</h2>
-        </section>
-        <section id="iniciar-sesion" class="iniciar-sesion">
-            <h2>Ingresa tu usuario y contraseña</h2>
-        </section>
-    </main>
 
-    <footer>
-        <div class="ondas">
-            <div class="onda" id="onda1"></div>
-            <div class="onda" id="onda2"></div>
-            <div class="onda" id="onda3"></div>
-            <div class="onda" id="onda4"></div>
+            <li>
+                <img src="/imagenes-1/basque-1.jpg" alt="deportes">
+            </li>
+
+            <li>
+                <img src="/Imagenes/Imagen-real.png" alt="futbol">
+            </li>
+
+            <li>
+                <img src="/imagenes-1/basquet-2.jpg" alt="baloncesto">
+            </li>
+
+            <li>
+                <img src="/imagenes-1/colegio.jfif" alt="voleibol">
+            </li>
+
+            <li>
+                <img src="/imagenes-1/ChatGPT Image 27 may 2026, 22_20_34 (1).png" alt="deportes">
+            </li>
+
+            <li>
+                <img src="/imagenes-1/futbol.jpg" alt="futbol">
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- TARJETAS -->
+    <section class="cards">
+
+        <div class="card">
+
+            <h2>⚽ Deportes</h2>
+
+            <p>
+                Explora todas las disciplinas deportivas disponibles.
+            </p>
+
         </div>
+
+
+        <div class="card">
+
+            <h2>📅 Eventos</h2>
+
+            <p>
+                Consulta encuentros, torneos y actividades deportivas.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>📝 Registros</h2>
+
+            <p>
+                Inscríbete y participa en la experiencia deportiva.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PARTIDOS -->
+    <section class="partidos">
+
+        <h2 class="titulo-partidos">
+
+            🔥 Partidos Destacados
+
+        </h2>
+
+
+        <div class="contenedor-partidos">
+
+            <div class="partido-card">
+
+                <div class="fondo-partido">
+
+                    <span class="estado vivo">
+
+                        EN VIVO
+
+                    </span>
+
+
+                    <div class="logos">
+
+                        <img src="/Imagenes/aguilas.png" alt="Aguilas">
+
+                        <span>VS</span>
+
+                        <img src="/Imagenes/titanes.png" alt="Titanes">
+
+                    </div>
+
+
+                    <div class="nombres">
+
+                        <p>Águilas</p>
+
+                        <p>Titanes</p>
+
+                    </div>
+
+
+                    <div class="marcador">
+
+                        2 - 1
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="ondas">
+
+            <div class="onda" id="onda1"></div>
+
+            <div class="onda" id="onda2"></div>
+
+            <div class="onda" id="onda3"></div>
+
+            <div class="onda" id="onda4"></div>
+
+        </div>
+
+
         <ul class="social-icon">
+
             <li>
+
                 <a href="https://www.instagram.com/mimvy_?igsh=NXpqemkydmVudzBk" target="_blank">
+
                     <img src="/Imagenes/instagram.png" alt="Instagram">
+
                 </a>
+
             </li>
+
+
             <li>
+
                 <a href="https://wa.me/573015488862" target="_blank">
+
                     <img src="/Imagenes/whatsapp.png" alt="WhatsApp">
+
                 </a>
+
             </li>
+
         </ul>
+
+
         <ul class="menu-footer">
-            <li><a href="#inicio">Inicio</a></li>
+
+            <li>
+                <a href="#inicio">Inicio</a>
+            </li>
+
         </ul>
-        <p>&copy; 2026 MIMVY | Todos los derechos reservados</p>
+
+        <p>
+
+            &copy; 2026 MIMVY | Todos los derechos reservados
+
+        </p>
+
     </footer>
 
 

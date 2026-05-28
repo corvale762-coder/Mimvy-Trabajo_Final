@@ -6,6 +6,7 @@
     <title>Login</title>
 
     <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="/Imagenes/buhos.ico">
 </head>
 
 <body>
@@ -29,13 +30,18 @@
 
             <label>Contraseña</label>
 
-            <input 
-                type="password"
-                id="input-clave"
-                name="contrasena"
-                placeholder="*******"
-                required
-            >
+            <div class="campo-clave">
+                <input 
+                    type="password"
+                    id="input-clave"
+                    name="contrasena"
+                    placeholder="*******"
+                    required
+                >
+                <button type="button" class="btn-ojo" id="btn-ojo-clave" aria-label="Mostrar contraseña">
+                    👁️
+                </button>
+            </div>
 
             <button type="submit">Login</button>
 

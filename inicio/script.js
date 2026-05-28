@@ -7,42 +7,27 @@ const menu = document.querySelector(".menu");
 /* selecciona fondo oscuro */
 const overlay = document.querySelector(".overlay");
 
-
 /* abrir / cerrar menú */
-menuIcon.addEventListener("click",()=>{
+menuIcon.addEventListener("click", () => {
+  menu.classList.toggle("active");
 
-    menu.classList.toggle("active");
-
-    overlay.classList.toggle("active");
-
+  overlay.classList.toggle("active");
 });
 
+/* cerrar menú al tocar overlay */
+overlay.addEventListener("click", () => {
+  menu.classList.remove("active");
 
-/* cerrar tocando afuera */
-overlay.addEventListener("click",()=>{
-
-    menu.classList.remove("active");
-
-    overlay.classList.remove("active");
-
+  overlay.classList.remove("active");
 });
 
+/* ACORDEÓN */
+const accordions = document.querySelectorAll(".accordion");
 
-/* selecciona acordeones */
-const accordions =
-document.querySelectorAll(".accordion");
+accordions.forEach((accordion) => {
+  const btn = accordion.querySelector(".accordion-btn");
 
-
-accordions.forEach(item=>{
-
-    const btn =
-    item.querySelector(".accordion-btn");
-
-
-    btn.addEventListener("click",()=>{
-
-        item.classList.toggle("active");
-
-    });
-
+  btn.addEventListener("click", () => {
+    accordion.classList.toggle("active");
+  });
 });
