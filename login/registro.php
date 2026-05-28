@@ -2,21 +2,21 @@
 
 include("conexion.php");
 
+$nombre = $_POST['nombre_completo'];
 $usuario = $_POST['usuario'];
+$telefono = $_POST['telefono'];
 $contrasena = $_POST['contrasena'];
 
-$sql = "INSERT INTO usuarios(usuario, contrasena)
-VALUES('$usuario', '$contrasena')";
+$sql = "INSERT INTO usuarios 
+(nombre_completo, usuario, telefono, contrasena)
 
-if(mysqli_query($conexion, $sql)){
+VALUES 
+('$nombre', '$usuario', '$telefono', '$contrasena')";
 
-    header("Location: login.html");
-    exit();
-
+if ($conexion->query($sql) === TRUE) {
+    echo "Registro exitoso";
 } else {
-
-    echo "Error al registrar";
-
+    echo "Error: " . $conexion->error;
 }
 
 ?>

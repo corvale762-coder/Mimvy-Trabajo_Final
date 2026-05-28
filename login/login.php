@@ -1,32 +1,24 @@
 <?php
 
-session_start();
-
 include("conexion.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$usuario = $_POST['usuario'];
+$contrasena = $_POST['contrasena'];
 
-    $usuario = $_POST['usuario'];
-    $contrasena = $_POST['contrasena'];
+$sql = "SELECT * FROM usuarios 
+WHERE usuario='$usuario' 
+AND contrasena='$contrasena'";
 
-    $sql = "SELECT * FROM usuarios 
-            WHERE usuario='$usuario' 
-            AND contrasena='$contrasena'";
+$resultado = $conexion->query($sql);
 
-    $resultado = mysqli_query($conexion, $sql);
+if ($resultado->num_rows > 0) {
 
-    if(mysqli_num_rows($resultado) > 0){
+    echo "Inicio de sesión exitoso";
 
-        $_SESSION['usuario'] = $usuario;
+} else {
 
-        header("Location: index.php");
-        exit();
-
-    } else {
-
-        echo "Usuario o contraseña incorrectos";
-
-    }
+    echo "Usuario o contraseña incorrectos";
 
 }
+
 ?>

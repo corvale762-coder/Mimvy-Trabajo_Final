@@ -3,12 +3,12 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$db = "mimv";
+$database = "mimv";
 
-$conexion = mysqli_connect($host, $user, $password, $db);
+$conexion = new mysqli($host, $user, $password, $database);
 
-if(!$conexion){
-    die("Error de conexión");
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
 }
 
 ?>
